@@ -1,6 +1,6 @@
 # informatics_42_2020
 
-### Hi there 👋
+### Hi there 👋 I'm Daniil Golubev
 
 This is the first lab
 
