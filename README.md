@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Daniil Golubev
 
-This is the first lab
+This is the second lab
 
 ## Contacts
 
