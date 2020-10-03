@@ -1,27 +1,23 @@
 #include <iostream>
-#include <string>
+#include <math.h>
 
-bool isEven(int number)
+double func1(const double x)
 {
-    return number % 2 == 0;
-}
+    const double b = 2.5;
+    const double axPow = pow(b, 3) + pow(x, 3);
 
-template <typename T>
-T input(std::string message)
-{
-    T result;
+    const double numerator = 1 + pow(sin(axPow), 2);
+    const double denominator = pow(axPow, 1 / 3);
 
-    std::cout << message;
-    std::cin >> result;
-
-    return result;
+    return numerator / denominator;
 }
 
 int main()
 {
-    int number = input<int>("Enter number: ");
-
-    printf("Число %i - %s\n", number, isEven(number) ? "четное" : "нечетное");
+    for (double x = 1.28; x <= 3.28; x += 0.4)
+    {
+        std::cout << "x = " << func1(x) << std::endl;
+    }
 
     return 0;
 }
