@@ -1,11 +1,19 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <math.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    const double b = 2.5;
+ 
+    double dx = 0.4;
+    for (double x = 1.28 ; x <= 3.28; x += dx)  {
+        double numerator = 1 + pow(sin(pow(b, 3) + pow(x,3)),2);
+        double denominator = pow(pow(b,3) + pow(x,3),1/3);
+        double y = numerator/denominator;
+        std::cout << "x= "<< x << " y= " << y <<std::endl;
+    }
+
+   
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
