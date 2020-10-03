@@ -3,13 +3,11 @@
 
 int main()
 {
-    const double b = 2.5;
+    const double a = 1.6;
  
-    double dx = 0.4;
-    for (double x = 1.28 ; x <= 3.28; x += dx)  {
-        double numerator = 1 + pow(sin(pow(b, 3) + pow(x,3)),2);
-        double denominator = pow(pow(b,3) + pow(x,3),1/3);
-        double y = numerator/denominator;
+    double dx = 0.5;
+    for (double x = 1.2 ; x <= 3.7; x += dx)  {
+        double y = pow(a,pow(x,2)-1) - log10(pow(x,2)-1) + pow(pow(x,2)-1, 1/3);
         std::cout << "x= "<< x << " y= " << y <<std::endl;
     }
 
