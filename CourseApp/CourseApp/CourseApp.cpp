@@ -2,10 +2,22 @@
 //
 
 #include <iostream>
-
+#include <math.h>
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double b = 2.5;
+	double x = 1.28;
+
+	double dx = 0.4;
+	for (x;x <= 3.28;x += dx)
+	{
+		double numenator = 1 + pow(sin(pow(b,3) + pow(x,3)),2);
+		double denumenator = pow((pow(b, 3) + pow(x, 3)), 1 / 3.0);
+		double y = numenator / denumenator;
+		cout << "x=" << x << " y=" << y << endl;
+	}
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
