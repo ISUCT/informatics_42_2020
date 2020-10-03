@@ -1,11 +1,24 @@
 // CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include <math.h>
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double a = 2.0;
+	const double b = 4.1;
+	double x = 0.77;
+
+	for (x;x <= 1.77;x += 0.2)
+	{
+		double numenator = log((pow(b, 2) - pow(x, 2))) / log(a);
+		double denominator = pow(abs(pow(x, 2) - pow(a, 2)), 1 / 3.0);
+		double y = numenator / denominator;
+		cout << " x= " << x << " y= " << y << endl;
+	}
+	return 0;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
