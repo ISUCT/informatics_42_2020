@@ -6,16 +6,31 @@
 using namespace std;
 int main()
 {
-	const double b = 2.5;
-	double x = 1.28;
+	const double a = -2.5;
+	const double b = 3.4;
+	double x = 3.5;
+	double y = 0;
+	const double endx = 6.5;
+	double numenator = 0;
+	double denumenator = 0;
 
-	double dx = 0.4;
-	for (x;x <= 3.28;x += dx)
+	double dx = 0.6;
+	for (x;x < endx;x += dx)
 	{
-		double numenator = 1 + pow(sin(pow(b,3) + pow(x,3)),2);
-		double denumenator = pow((pow(b, 3) + pow(x, 3)), 1 / 3.0);
-		double y = numenator / denumenator;
-		cout << "x=" << x << " y=" << y << endl;
+		if (x < 5) 
+		{
+			numenator = pow((log(pow(a,2) + x) / log(10)), 2);
+			denumenator = pow((a + x), 2);
+			y = numenator / denumenator;
+			cout << "x=" << x << " y=" << y << endl;
+		}
+		else
+		 {
+			 numenator = pow((a + b * x), 2.5);
+			 denumenator = 1.8 + pow(cos(a * x), 3);
+			 y = numenator / denumenator;
+			 cout << "x=" << x << " y=" << y << endl;
+		 }
 	}
 	return 0;
 }
