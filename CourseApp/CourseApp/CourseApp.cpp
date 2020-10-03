@@ -5,6 +5,20 @@
 
 int main()
 {
+	const double a = 2.0;
+	const double b = 4.1;
+	
+	double dx = 0.2;
+	for (double x = 0.77; x <= 1.77; x += dx) {
+		double numerator = log(pow(b, 2) - pow(x, 2)) / log(a);
+		double denomurator = pow(abs(pow(x, 2) - pow(a, 2)), 1 / 3.0);
+			double y = numerator / denomurator;
+				std::cout << "x= " << x << " y=" << y << std::end;
+	}
+
+
+
+
     std::cout << "Hello World!\n";
 }
 
