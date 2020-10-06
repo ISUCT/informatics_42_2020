@@ -7,13 +7,11 @@
 int main() {
 
     const double a = 2.0;
-    const double b = 4.1;
-    double x = 0.77;
-    for (x; x <= 1.77; x = x + 0.2)
+    const double b = 3.0;
+    double x = 0.11;
+    for (x; x <= 0.36; x = x + 0.05)
     {
-        double numerator = log((pow(b, 2) - pow(x, 2))) / log(a);
-        double denuminator = pow(abs(pow(x, 2) - pow(a, 2)), 1 / 3.0);
-        double y = numerator / denuminator;
+        double y = (asin(pow(x, a)) + acos(pow(x, b)));
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
     }
