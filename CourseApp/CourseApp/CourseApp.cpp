@@ -4,16 +4,12 @@
 int main()
 {
     const double a = 1.6;
- 
     double dx = 0.5;
     for (double x = 1.2 ; x <= 3.7; x += dx)  {
-        double y = pow(a,pow(x,2)-1) - log10(pow(x,2)-1) + pow(pow(x,2)-1, 1/3);
+        double y = pow(a,pow(x,2)-1) - log10(pow(x,2)-1) + pow(pow(x,2)-1, 1/3.0);
         std::cout << "x= "<< x << " y= " << y <<std::endl;
     }
-
-   
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
