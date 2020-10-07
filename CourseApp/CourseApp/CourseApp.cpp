@@ -5,12 +5,14 @@
 double func(const double x)
 {
     if (abs(x) < 1)
+    {
         return acos(x);
+    }
 
     return pow(1.2, x) - pow(x, 1.2);
 }
 
-std::vector<double> exampleA(const double xStart, const double xEnd, const double xDelta)
+std::vector<double> taskA(const double xStart, const double xEnd, const double xDelta)
 {
     std::vector<double> results;
 
@@ -23,7 +25,7 @@ std::vector<double> exampleA(const double xStart, const double xEnd, const doubl
     return results;
 }
 
-std::vector<double> exampleB(const double *values, const int size)
+std::vector<double> taskB(const double *values, const int size)
 {
     std::vector<double> results;
 
@@ -51,13 +53,13 @@ void printExampleInfo(const char *title, std::vector<double> results)
 
 int main()
 {
-    auto exampleAResults = exampleA(0.2, 2.2, 0.4);
-    printExampleInfo("Example A", exampleAResults);
+    auto exampleAResults = taskA(0.2, 2.2, 0.4);
+    printExampleInfo("Task A", exampleAResults);
 
     double values[] = {0.1, 0.9, 1.2, 1.5, 2.3};
-    auto exampleBResults = exampleB(values, sizeof(values) / sizeof(double));
+    auto exampleBResults = taskB(values, sizeof(values) / sizeof(double));
 
-    printExampleInfo("Example B", exampleBResults);
+    printExampleInfo("Task B", exampleBResults);
 
     return 0;
 }
