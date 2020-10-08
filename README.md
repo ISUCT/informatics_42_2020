@@ -1,3 +1,3 @@
 # informatics_42_2020
 
-Test
+Alexey Polehin
