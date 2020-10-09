@@ -2,10 +2,20 @@
 //
 
 #include <iostream>
+#include <math.h>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double a = 2.0;
+    double b = 1.1;
+    double y;
+    for (double x = 0.08; x <= 1.08; x += 0.2) {
+
+        y=(log(abs(sqrt(b)) - sqrt(x))/log(a))/(pow(abs(sqrt(x)-sqrt(a)), 1/5));
+        cout << "X = " << x << "  Y = " << y << endl;
+    }
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
