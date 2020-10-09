@@ -2,21 +2,25 @@
 //
 
 #include <iostream>
-#include <math>
+#include <cmath>
+
 using namespace std;
 
 int main()
 {
-	const double a = 2.0;
-	const double b = 4.1;
-	double dx = 0.2;
-	for (double x = 0.77; x <= 1.77; x += dx) {
-		double numenator = log((pow(b, 2) - pow(x, 2))) / log(a);
-		double denominator = pow(abs(pow(x, 2) - pow(a, 2)), 1 / 3.0);
-		double y = numenator / denominator;
-		cout << "x= " << x << " y= " << y << endl;
-	}
+	float a = 1.2;
+	float b = 0.48;
+	float xn = 0.7;
+	float xk = 2.2;
+	float y;
 
+	for (xn; xn<=xk; xn+=0.3)
+	{
+		y =(pow(b, 3) + (sin(a * xn) * sin(a * xn))) / ((acos(xn * b * xn)) + exp(-xn / 2));
+		cout << "x= " << xn << " y= " << y << endl;
+
+	}
+	
 }
 
 
