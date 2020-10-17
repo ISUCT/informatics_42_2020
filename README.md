@@ -1,1 +1,2 @@
-# informatics_42_2020
+# informatics_42
+Alexander Seleznev

@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
+#include <math.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double a = 2.0;
+	const double b = 4.1;
+	double x = 0.77;
+
+	double numerator = log((pow(b,2)-pow(x, 2)))/log(a);
+	double denominator = pow(abs(pow(x, 2) - pow(a, 2)), 1/3.0);
+	double y = numerator / denominator;
+	std::cout << "x = " << x <<std::endl;
+	std::cout << "y = " << y <<std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
