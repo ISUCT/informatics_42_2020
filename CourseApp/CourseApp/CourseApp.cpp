@@ -5,7 +5,21 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double a = 2.5;
+
+	const double b = 4.6;
+	
+	for (double x = 0.5; x <= 3.6;x += 0.5) {
+
+		double numerator = pow((a + b * x), 2.5);
+		double denominator = 1 + log(a + b * x);
+		double y = numerator / denominator;
+
+		std::cout << "x=" << x << "\ny=" << y << std::endl;
+	}
+	int end;
+	std::cin >> end;
+		return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
