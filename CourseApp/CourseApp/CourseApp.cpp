@@ -2,10 +2,22 @@
 //
 
 #include <iostream>
-
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double a = 4.1;
+	const double b = 2.7;
+	double xn =1.2;
+	double xk = 5.2;
+	double dx = 0.8;
+	
+	for (double x = xn; x <= xk; x += dx) {
+		double numenator = a * pow(x, 1 / 2.0) - b * log(x);
+		double denominatore = log10(abs(x - 1));
+		double y = numenator / denominatore;
+		cout << "x=" << x << "\ny=" << y << endl;
+	}
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
@@ -18,3 +30,4 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
