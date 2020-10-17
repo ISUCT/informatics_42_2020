@@ -2,11 +2,21 @@
 //
 
 #include <iostream>
-
+#include <cmath>
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	const double a = 0.8;
+	const double b = 0.4;
+	for (double x = 1.23; x <= 7.23; x += 1.2) {
+		double numenator = pow(pow(x - a, 2), 1 / 3.0) + pow(abs(x + b), 1 / 5.0);
+		double denominator = pow(pow(x, 2) - pow(a - b, 2), 1 / 9.0);
+		double y = numenator / denominator;
+		cout << "x= "<< x <<  " y= " << y << endl;
+	}
+
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
