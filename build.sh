@@ -1,9 +1,11 @@
 #!/bin/bash
 
-input="CourseApp/CourseApp/CourseApp.cpp"
+folder="CourseApp/CourseApp"
 output="a.out"
 
-if [ $1 ]; then input=$1; fi
+if [ $1 ]; then folder=$1; fi
 if [ $2 ]; then output=$2; fi
 
-g++ $input -o $output && ./$output
+files=$(echo $(ls $folder/*.cpp))
+
+g++ $files -o $output && ./$output
