@@ -4,11 +4,11 @@ using namespace std;
 
 double a = 2.0;
 double b = 0.95; 
-double e = exp(1.0);
+//double e = exp(1.0);
 
 double y(double c) {
 	double d1 = 1 + (log(c / a)*log(c / a));
-	double d2 = b - pow(e, (c / a));
+	double d2 = b - exp(c/a);
 	return d1 / d2;
 }
 
