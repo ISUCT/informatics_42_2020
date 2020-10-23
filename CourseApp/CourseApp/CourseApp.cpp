@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "func.h"
-
+using namespace std;
 int main()
 {
     double a = 1.6;
@@ -13,6 +13,6 @@ int main()
     int size = sizeof(xs)/sizeof(xs[0]);
     taskB(a,xs,size);
     int end;
-    std::cin>> end;
+    cin>> end;
     return 0;
 }
