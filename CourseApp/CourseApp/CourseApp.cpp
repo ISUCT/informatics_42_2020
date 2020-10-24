@@ -2,25 +2,28 @@
 //
 
 #include <iostream>
-#include <cmath>
-
+#include "Calc.h"
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-	float a = 1.2;
-	float b = 0.48;
-	float xn = 0.7;
-	float xk = 2.2;
-	float y;
-
-	for (xn; xn<=xk; xn+=0.3)
+	cout << "We have" << argc << " params" << endl;
+	for (int i = 0; i < argc; i++)
 	{
-		y =(pow(b, 3) + (sin(a * xn) * sin(a * xn))) / ((acos(xn * b * xn)) + exp(-xn / 2));
-		cout << "x= " << xn << " y= " << y << endl;
-
+		cout << argv[i] << endl;
 	}
-	
+
+	const double a = 1.2;
+	const double b = 0.48;
+
+	taskA(a, b, 0.7, 2.2, 0.3);
+	double x[] = {0.25, 0.36,0.56, 0.94, 1.28};
+	cout << "_______________________" << endl;
+
+	taskB(a, b, x, sizeof(x) / sizeof(x[0]));
+	char end;
+	cin >> end;
+	return 0;
 }
 
 
