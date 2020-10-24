@@ -5,7 +5,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout << "We have" << argc << " params" << endl;
+    cout << "We have " << argc << " params" << endl;
     for(int i = 0; i < argc ;i++)
     {
         cout << argv[i] << endl;
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     taskB(a, b, x, sizeof(x) / sizeof(x[0]));
     char end;
-    cin >> end;
+    cin >> end;    
     cout << "it`s working" << endl;
     return 0;
 }
