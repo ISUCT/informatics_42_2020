@@ -1,20 +1,24 @@
 // CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include <math.h>
+
 #include <iostream>
+#include "calc.h"
 using namespace std;
-
-int main()
+int main(int arge, char *argv[])
 {
-	for(double x = 1.25; x <=3.25; x += 0.4)
+	cout << "We have" << " params" << endl;
+	for (int i = 0; i < arge;i++)
 	{
-		double y = pow(abs(pow(x, 2) - 2.5), 0.25) + pow(log10(pow(x, 2)), 1 / 3);
-		cout << " x= " << x << " y= " << y << endl;
+		cout << argv[i] << endl;
 	}
+	taskA(1.25, 3.25, 0.4);
+	double x[] = { 1.84, 2.71, 3.81, 4.56, 5.62 };
+	cout << "------------------------" << endl;
+	taskB(x, sizeof(x) / sizeof(x[0]));
+	char end;
+	cin >> end;
 	return 0;
-
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
