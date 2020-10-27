@@ -1,5 +1,4 @@
 #pragma once
 double calc(double a, double b, double x);
-double calc(double x);
-void taskA(double a, double b, double xn, double xk, double dx);
-void taskB(double a, double b, double* x, int size);
+void taskA(double a, double b, double xn, double xk, double dx, double TA[2][6]);
+void taskB(double a, double b, double *x, double TB[5]);
