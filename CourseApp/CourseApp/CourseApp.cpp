@@ -1,22 +1,42 @@
 #include <iostream>
 #include "Calc.h"
+#include <malloc.h>
 using namespace std;
 
 int main()
 {
     const double a = 2.0;
     const double b = 3.0;
-    double Array[2][2][6];
+    int SizeA = 0;
+    int SizeB = 0;
+    int *pSizeA = &SizeA;
     double x[] = { 0.08, 0.26, 0.35, 0.41, 0.53 };
 
-    taskA(a, b, 0.11, 0.36, 0.05, Array);
-    taskB(a, b, x, Array);
-    for (int i = 0; i < 6; i++)
-        cout << "x = " << Array[0][0][i] << " |" << " y =" << Array[0][1][i] << endl;
+    calcA(0.11, 0.36, 0.05, pSizeA);
+    SizeA = SizeA * 2;
+    double *ArrayA = new double[SizeA];
+
+    SizeB = ((sizeof(x) / sizeof(x[0])) * 2);
+    double* ArrayB = new double[SizeB];
+    
+
+    Score_taskA(a, b, 0.11, 0.36, 0.05, ArrayA);
+    for (int i = 0; i <= (SizeA - 1); i += 2)
+    {
+        cout << "x = " << ArrayA[i] << " | " << "y = " << ArrayA[i + 1] << endl;
+    } 
+    
     cout << "=======================" << endl;
-    for (int i = 0; i < 5; i++)
-        cout << "x = " << Array[1][0][i] << " |" << " y = " << Array[1][1][i] << endl;
+
+    Score_taskB(a, b, x, SizeB, ArrayB);
+    for (int j = 0; j <= (SizeB - 1); j += 2)
+    {
+        cout << "x = " << ArrayB[j] << " | " << "y = " << ArrayB[j + 1] << endl;
+    }
+
     char end;
     cin >> end;
+    delete[] ArrayA;
+    delete[] ArrayB;
     return 0;
 }
