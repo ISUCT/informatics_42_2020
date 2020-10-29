@@ -12,13 +12,14 @@ double calc(double x)
 }
 void taskA (double xn, double xk, double dx)
 {
-
-	for (double i = xn; i <= xk; i += dx)
+	int n = (xk - xn)/dx;
+	double *y = new double[n];
+	int i = 0;
+	for (double x = xn; x <= xk; x += dx)
 	{
-
-		double y = calc(i);
-		cout << i << "\t" << y << endl;
-
+		y[i] = calc(x);
+		cout << y[i]<< "\t" << endl;
+		i++;
 	}
 	return;
 }
