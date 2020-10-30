@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 
+
 double calc(double a, double b, double x)
 {
 	double numenator = abs(a - b * x);
@@ -12,27 +13,39 @@ double calc(double a, double b, double x)
 	double y = pow((numenator / denominator), 1 / 2.0);
 	return y;
 }
-double calc(double x)
+
+void taskA(double xn, double xk, double dx, int* pSizeA)
 {
-	const double a = 7.2;
-	const double b = 4.2;
-	return calc(a, b, x);
+	int numer = *pSizeA;
+	for (double x = xn; x <= xk; x += dx)
+	{
+		numer++;
+	}
+	*pSizeA = numer;
 }
-void taskA(double a, double b, double xn, double xk, double dx)
+void ScoreTaskA(double a, double b, double xn, double xk, double dx, double* ArrayA)
 {
-	for (double x = xn; x <= xk; x += dx) {
+	int i = 0;
+	for (double x = xn; x <= xk; x += dx)
+	{
 		double y = calc(a, b, x);
-		cout << x << "\t" << y << endl;
+		ArrayA[i] = x;
+		i++;
+		ArrayA[i] = y;
+		i++;
 	}
 	return;
 }
-void taskB(double a, double b, double* x, int size)
+void ScoreTaskB(double a, double b, double* x, int SizeB, double* ArrayB)
 {
-	for (int i = 0;i < size;i++)
+	int i = 0;
+	for (int n = 0; n <= ((SizeB / 2) - 1); n++)
 	{
-		double y = calc(a, b, x[i]);
-		char result[80];
-		sprintf_s(result, "x = %.3f y = %.3f \n", x[i], y);
-		cout << result << endl;
+		double y = calc(a, b, x[n]);
+		ArrayB[i] = x[n];
+		i++;
+		ArrayB[i] = y;
+		i++;
 	}
+	return;
 }
