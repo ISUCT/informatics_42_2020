@@ -1,21 +1,22 @@
-
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-#include <cmath>
+#include "Calc.h"
 using namespace std;
-int main()
+
+int main(int argc, char* argv[])
 {
+	cout << "We have " << argc << " params" << endl;
+	for (int i = 0; i < argc;i++)
+	{
+		cout << argv[i] << endl;
+	}
+
 	const double a = 7.2;
 	const double b = 4.2;
-	for (double x = 1.81; x <= 5.31; x += 0.7) {
-		double numenator = abs(a - b * x);
-		double denominator = pow((log(x)/log(10)), 3);
-		double y = pow((numenator / denominator), 1 / 2.0);
-		cout << "y=" << y << " x=" << x << endl;
-		
-	}
+	taskA(a, b, 1.81, 5.31, 0.7);
+	double x[] = { 2.4, 2.8, 3.9, 4.7, 3.16 };
+	cout << "-------------------" << endl;
+	taskB(a, b, x, sizeof(x) / sizeof(x[0]));
+	char end;
+	cin >> end;
 	return 0;
 }
-
