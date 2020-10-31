@@ -9,7 +9,6 @@ using namespace std;
 int main()
 {
 
-	double x = 0.77;
 	taskA(0.11, 0.36, 0.05);
 	double arr[] = {0.2,0.3,0.38,0.43,0.57};
 	cout << endl;
