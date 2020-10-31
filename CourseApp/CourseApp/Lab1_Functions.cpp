@@ -3,6 +3,18 @@
 #include <string>
 
 using namespace std;
+class ArrInfo
+{
+ public: 
+	 int length; 
+	 double *function;
+	 ArrInfo(int length)
+	 {
+		 this->length = length;
+		 this->function = new double[length];
+	 }
+
+};
 
 double calc(double a, double b, double x)
 {
@@ -28,22 +40,25 @@ double calc(double x)
 	const double b = 3.4;
 	return calc(a, b, x);
 }
-void taskA(double a, double b, double xn, double xk, double dx)
-{
+
+ArrInfo taskA(double a, double b, double xn, double xk, double dx)
+{ 
+	cout << xn << xk << dx << endl;
+	int size = (int)(abs(xk - xn) / dx);
+	ArrInfo info(size);
+	int i=0;
 	for (double x = xn; x <= xk; x += dx)
 	{
-		double y = calc(a, b, x);
-		cout << "x=" << x << "\t" << " y=" << y << endl;
+		info.function[i] = calc(a, b, x);
+		i++;
 	}
-	return;
+	return info;
 }
+
 void taskB(double a, double b, double *x, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
 		double y = calc(a, b, x[i]);
-		char result[100];
-		sprintf_s(result, "x=%2.3f y = %2.3f \n", x[i], y);
-		cout << result << endl;
 	}
 }

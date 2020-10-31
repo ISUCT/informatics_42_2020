@@ -1,5 +1,12 @@
 #pragma once
 double calc(double a, double b, double x);
 double calc(double x);
-void taskA(double a, double b, double xn, double xk, double dx);
+class ArrInfo
+{
+public:
+	int length;
+	double *function;
+
+};
+ArrInfo taskA(double a, double b, double xn, double xk, double dx);
 void taskB(double a, double b, double *x, int size);
