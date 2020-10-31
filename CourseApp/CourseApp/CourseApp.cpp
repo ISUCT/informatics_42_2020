@@ -2,29 +2,18 @@
 //
 
 #include <iostream>
+#include <math.h>
+#include "Calc.h"
 using namespace std;
-double a = 0.1;
-double b = 0.5;
-double y(double f)
+int main()
 {
-	double y1 = a + pow(tan(b*f), 2);
-	double y2 = b + pow((1 / tan(a*f)), 2);
-	return y1 / y2;
-  
-}
-
-int maon()
-{
-	int i;
-	double x;
-	for (x = 0.15; x <= 1.37; x += 0.25)
-	{
-		cout << y(x) << endl;
-	}
-	double arr[5] = { 0.2,0.3,0.44,0.6,0.56 };
-	for (i = 0; i < 5; i++) {
-		cout << y(arr[i]) << endl;
-	}return 0
+	double a = 0.1;
+	double b = 0.5;
+	taskA(0.14, 1.37,0.25,a,b);
+	double m[5] = { 0.2,0.3,0.44,0.6,0.56 };
+	cout << endl;
+	taskB(m, sizeof(m),a, b);
+	return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
