@@ -4,19 +4,12 @@
 #include <iostream>
 #include "calc.h"
 using namespace std;
-int main(int arge, char *argv[])
+int main()
 {
-	cout << "We have" << " params" << endl;
-	for (int i = 0; i < arge;i++)
-	{
-		cout << argv[i] << endl;
-	}
 	taskA(1.25, 3.25, 0.4);
-	double x[] = { 1.84, 2.71, 3.81, 4.56, 5.62 };
+	double arr[] = { 1.84, 2.71, 3.81, 4.56, 5.62 };
 	cout << "------------------------" << endl;
-	taskB(x, sizeof(x) / sizeof(x[0]));
-	char end;
-	cin >> end;
+	taskB(arr, sizeof(arr) / sizeof(arr[0]));
 	return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
