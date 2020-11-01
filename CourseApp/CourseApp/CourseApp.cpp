@@ -2,12 +2,19 @@
 //
 
 #include <iostream>
-
+#include <math.h>
+#include "Calc.h"
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	double a = 0.1;
+	double b = 0.5;
+	taskA(0.14, 1.37,0.25,a,b);
+	double m[5] = { 0.2,0.3,0.44,0.6,0.56 };
+	cout << endl;
+	taskB(m, sizeof(m),a, b);
+	return 0;
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
