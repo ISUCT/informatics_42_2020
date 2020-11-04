@@ -8,15 +8,10 @@ double func(double x, double a)
     double y = pow(a,pow(x,2)-1) - log10(pow(x,2)-1) + pow(pow(x,2)-1, 1/3.0);
     return y;
 }
-int lengthA(double xn, double xk, double dx)
-{
-    int n = (xk-xn)/dx + 1;
-    return n;
-}
 int taskA(double a, double xn, double xk, double dx, double *&y1)
 {
     int i = 0;
-    int n = lengthA(1.2,3.7,0.5);
+    int n = (xk-xn)/dx + 1;
     y1 = new double [n];
     for(double x = xn; x <= xk; x += dx)
     {
@@ -46,7 +41,7 @@ int taskB(double a, double *xs, int size, double *&y2)
 }
 void coutB(int size, double *&y2)
 {
-    cout << "\n" << endl;
+    cout << endl;
     for (int i = 0; i < size; i++)
     {
         cout << y2[i] << endl;
