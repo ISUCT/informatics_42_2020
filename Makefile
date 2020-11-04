@@ -1,15 +1,21 @@
+# Compiler
 CC = g++
-.DEFAULT_GOAL = lab0
+
+# Target
+TARGET = lab0
+
+# Sources
 MAIN_FOLDER = CourseApp/CourseApp
+LIBRARY_FOLDER = $(MAIN_FOLDER)/lib
+
+all: CourseApp.o $(TARGET).o
+	$(CC) $^ -o $(TARGET).out
 
 CourseApp.o: $(MAIN_FOLDER)/CourseApp.cpp
-	$(CC) -c $(MAIN_FOLDER)/CourseApp.cpp
+	$(CC) -c $^
 
-lab0.o: $(MAIN_FOLDER)/lab0/lab0.cpp $(MAIN_FOLDER)/lab0/lab0.h
-	$(CC) -c $(MAIN_FOLDER)/lab0/lab0.cpp
-
-lab0: CourseApp.o lab0.o
-	$(CC) CourseApp.o lab0.o
+$(TARGET).o: $(wildcard $(MAIN_FOLDER)/$(TARGET)/*.cpp)
+	$(CC) -c $^
 
 clean:
-	rm *.o *.out
+	rm -rf *.o *.out
