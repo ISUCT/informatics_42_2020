@@ -9,21 +9,27 @@ double calc(double a, double b, double x)
     return y;
 }
 
-void taskA(double a, double b, double xn, double xk, double dx) 
+int taskA(double a, double b, double xn, double xk, double dx, double *&y) 
 {
+    int k = 0;
+    int n = (xk - xn) /dx + 1;
+    y = new double[n];
     for (double i = xn; i <= xk; i += dx) 
     {
-        double y = calc(a, b, i);
-        cout << i << "\t" << y << endl;
+        double u = calc(a, b, i);
+        y[k] = u;
+        k++;
     }
-    return;
+    return n;
 }
 
-void taskB(double a, double b, double* x, int size) 
+int taskB(double a, double b, double* x, int size, double *&y1) 
 {
+    y1 = new double[size];
     for (int i = 0; i < size; i++) 
     {
-        double y = calc(a, b, x[i]);
-        cout << x[i] << "\t" << y << endl;
+        double u = calc(a, b, x[i]);
+        y1[i] = u;
     }
+    return size;
 }
