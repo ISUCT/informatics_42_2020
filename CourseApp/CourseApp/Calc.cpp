@@ -12,33 +12,27 @@ double calc(double a, double b, double x)
 	return y;
 }
 
-double calc(double x)
+int taskA(double a, double b, double xn, double xk, double dx, double *&y)
 {
-	const double a = 1.35;
-	const double b = 0.98;
-	return calc(a, b, x);
-}
-
-
-void taskA(double a, double b, double xn, double xk, double dx, *y)
-{
-	int n = (xk - xn) / dx;
-	int i = 0;
-	for (double x = xn; x <= xk; x += dx)
+	
+	int k = 0;
+	int n = (xk - xn) / dx + 1;
+	y = new double[n];
+	for (double i = xn; i <= xk; i += dx)
 	{
-		y[i] = calc(x);
-		i++;
+		double u = calc(a, b, i);
+		y[k] = u;
+		k++;
 	}
-	return sizeof(y)
+	return n;
 }
-void taskB(double a, double b, double* x, int size)
+int taskB(double a, double b, double* x, int size, double *&y1)
 {
+	y1 = new double[size];
 	for (int i = 0; i < size; i++)
-	{
-		for (int i = 0; i < size; i++)
 		{
-			double y = calc(x[i]);
-			cout << x[i] << "\t" << y << endl;
+		double y = calc(a, b, x[i]);
+		y1[i] = y;
 		}
-	}
+	return size;
 }
