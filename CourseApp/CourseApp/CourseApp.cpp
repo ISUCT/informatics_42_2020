@@ -8,15 +8,24 @@ using namespace std;
 
 int main()
 {
-
-	taskA(0.11, 0.36, 0.05);
+	double *y;
+	int b = taskA(0.11, 0.36, 0.05,y);
+	for (int i = 0; i < b; i++)
+	{
+		cout << y[i] << endl;
+	}
 	double arr[] = {0.2,0.3,0.38,0.43,0.57};
 	cout << endl;
-
-	taskB(arr, sizeof(arr) / sizeof(arr[0]));
+	double *y1;
+	b=taskB(arr, sizeof(arr) / sizeof(arr[0]),y1);
+	for (int i = 0; i < b; i++)
+	{
+		cout << y1[i] << endl;
+	}
 	return 0;
 
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
