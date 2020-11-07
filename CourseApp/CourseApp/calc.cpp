@@ -8,25 +8,28 @@ double calc(double x)
 	return y;
 }
 
-void taskA(double xn, double xk, double dx)
+int taskA(double xn, double xk, double dx, double *&y)
 {
-	int n = (xk - xn)/dx;
-	double *y = new double[n];
-	int i = 0;
-	for (double x = xn; x <= xk; x += dx) 
+	int p = 0;
+	int n = (xk - xn)/dx+1;
+	y = new double[n];
+	for (double i = xn; i <= xk; i += dx)
 	{
-		y[i] = calc(x);
-		cout << y[i] << "\t" << endl;
-		i++;
+
+		double z = calc(i);
+		y[p] = z;
+		p++;
 	}
-	return;
+	return n;
 }
-void taskB(double *x, int size)
+int taskB(double *x, int size, double *&y)
 {
+	y = new double[size];
 	for (int i = 0;i < size;i++)
 	{
-		double y = calc(x[i]);
-		cout << x[i] << "\t"<< y << endl;
+		double z = calc(x[i]);
+		y[i] = z;
 	}
+	return size;
 }
 

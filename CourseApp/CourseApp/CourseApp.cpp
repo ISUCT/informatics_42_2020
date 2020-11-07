@@ -6,10 +6,20 @@
 using namespace std;
 int main()
 {
-	taskA(1.25, 3.25, 0.4);
+	double* y;
+	int h = taskA(1.25, 3.25, 0.4, y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << y[i] << endl;
+	}
+	delete[] y;
 	double arr[] = { 1.84, 2.71, 3.81, 4.56, 5.62 };
 	cout << "------------------------" << endl;
-	taskB(arr, sizeof(arr) / sizeof(arr[0]));
+	h = taskB(arr, sizeof(arr) / sizeof(arr[0]), y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << arr[i] << "\t" << y[i] << endl;
+	}
 	return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
