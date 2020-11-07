@@ -24,12 +24,13 @@ int main(int argc, char *argv[])
 		cout << " y = " << dataTaskA.function[i] << "\t" << endl;
 	}
 	double array[] = { 2.89, 3.54, 5.21, 6.28, 3.48 };
-	cout << "----------------------------------" << endl;
+    cout << "----------------------------------" << endl;
 	ArrInfo dataTaskB = taskB(a, b, array, sizeof(array) / sizeof(array[0]));
 	for (int i = 0; i < dataTaskB.length; i++)
 	{
 		cout << " y = " << dataTaskB.function[i] << "\t" << endl;
 	}
+
 	delete[] dataTaskA.function;
 	delete[] dataTaskB.function;
 	return 0;

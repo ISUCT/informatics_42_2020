@@ -37,7 +37,7 @@ double calc(double x)
 
 ArrInfo taskA(double a, double b, double xn, double xk, double dx)
 {
-	int size = (int)(abs(xk - xn) / dx);
+	int size = (int)((abs(xk - xn) / dx) + 1);
 	ArrInfo info(size);
 	int i = 0;
 	for (double x = xn; x <= xk; x += dx)
