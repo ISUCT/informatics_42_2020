@@ -10,14 +10,29 @@ int main()
 
 	const double a = 1.2;
 	const double b = 0.48;
+	double* y;
 
-	taskA(a, b, 0.7, 2.2, 0.3);
-	double x[] = {0.25, 0.36,0.56, 0.94, 1.28};
+	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << y[i] << endl;
+	}
+	delete[] y;
+
+	double* y1;
+	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
 	cout << "_______________________" << endl;
 
-	taskB(a, b, x, sizeof(x) / sizeof(x[0]));
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y1);
+
+	for (int i = 0; i < h; i++)
+	{
+		cout << x[i] << "\t" << y1[i] << endl;
+	}
+	delete[] y1;
 	return 0;
 }
+
 
 
 
