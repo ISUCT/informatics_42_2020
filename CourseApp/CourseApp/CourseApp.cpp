@@ -1,5 +1,7 @@
+
 #include <iostream>
 #include <cstring>
+#include "calc.h"
 using namespace std;
 
 class Square
@@ -36,9 +38,6 @@ public:
 				}
 				cout << endl;
 			}
-		
-
-
 	}
 
 	~Square()
@@ -55,7 +54,30 @@ int main()
 	SquareOne.Draw("#", compare);
 
 	cout << endl;
+
+	const double a = 1.2;
+	const double b = 0.48;
+	double* y;
+
+	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << y[i] << endl;
+	}
+
+	delete[] y;
+
+	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
+	cout << "_______________________" << endl;
+
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
+
+	for (int i = 0; i < h; i++)
+	{
+		cout << x[i] << "\t" << y[i] << endl;
+	}
 	return 0;
+
 }
 
 
