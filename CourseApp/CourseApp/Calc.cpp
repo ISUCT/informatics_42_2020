@@ -20,22 +20,25 @@ double calc(double x)
 }
 
 
-void taskA(double a, double b, double xn, double xk, double dx)
+void taskA(double a, double b, double xn, double xk, double dx, *y)
 {
+	int n = (xk - xn) / dx;
+	int i = 0;
 	for (double x = xn; x <= xk; x += dx)
 	{
-		double y = calc(a, b, x);
-		cout << x << "\t" << y << endl;
+		y[i] = calc(x);
+		i++;
 	}
-	return;
+	return sizeof(y)
 }
 void taskB(double a, double b, double* x, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		double y = calc(a, b, x[i]);
-		char result[80];
-		sprintf_s(result, "x = %.3f y = %.3f \n", x[i], y);
-		cout << result << endl;
+		for (int i = 0; i < size; i++)
+		{
+			double y = calc(x[i]);
+			cout << x[i] << "\t" << y << endl;
+		}
 	}
 }
