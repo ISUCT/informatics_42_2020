@@ -1,38 +1,15 @@
 #include <iostream>
-#include "lab0/lab0.h"
 
-void printTaskResults(const char *title, List<Point> *results)
-{
-    std::cout << "=========== " << title << " ===========" << std::endl;
-    std::cout << "Results: " << std::endl;
-
-    for (int i = 0; i < results->length(); i++)
-    {
-        auto result = (*results)[i];
-        std::cout << result.toString() << std::endl;
-    }
-
-    std::cout << std::endl;
-}
+#include "lab1/lab1.h"
 
 int main(int argc, char *argv[])
 {
-    auto taskAResults = lab0::taskA(0.2, 2.2, 0.4);
-    printTaskResults("Task A", taskAResults);
+    auto canvas = new Canvas(20, 20);
+    Rectangle rectangle(20, 20);
 
-    auto *values = new List<double>;
-    values->add(0.1);
-    values->add(0.9);
-    values->add(1.2);
-    values->add(1.5);
-    values->add(2.3);
+    canvas->draw(rectangle);
+    canvas->output(std::cout);
 
-    auto taskBResults = lab0::taskB(values);
-    printTaskResults("Task B", taskBResults);
-
-    delete taskAResults;
-    delete taskBResults;
-    delete values;
-
+    delete canvas;
     return 0;
 }

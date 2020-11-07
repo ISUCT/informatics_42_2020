@@ -21,4 +21,9 @@ namespace lab0
      * Gets x values and returns pairs of x and y
      */
     List<Point> *taskB(List<double> *values);
+
+    /**
+     * Runs lab example
+     */
+    void example();
 } // namespace lab0
