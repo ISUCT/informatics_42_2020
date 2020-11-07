@@ -1,54 +1,45 @@
-
-
 #include <iostream>
-#include "Calc.h"
-#include <cstdlib>
+#include <string>
+#include "calc.h"
 using namespace std;
-
-	 int main(int argc,char *argv[])
-	 {
-		 cout << "We have " << argc << " params" << endl;
-		 for (int i = 0; i < argc;i++) 
-		 {
-			 cout << argv[i] << endl;
-		 }
-
-		 int SizeA = 0;
-		 int SizeB = 0;
-		 int* pSizeA = &SizeA;
-		 double x[] = { 1.88 ,2.26 ,3.84 ,4.55 ,-6.21 };
-		 const double a = 0.8;
-		 const double b = 0.4;
-		 taskA( 1.23, 7.23, 1.2,pSizeA);
-		 SizeA = SizeA * 2;
-		 double* ArrayA = new double[SizeA];
-		 SizeB = ((sizeof(x) / sizeof(x[0])) * 2);
-		 double* ArrayB = new double[SizeB];
-		 ScoreTaskA(a, b, 1.23, 7.23, 1.2, ArrayA);
-		 for (int i = 0; i <= (SizeA - 1); i += 2)
-		 {
-			 cout << "x = " << ArrayA[i] << " | " << "y = " << ArrayA[i + 1] << endl;
-		 }
-		 cout << "--------------" << endl;
-		 ScoreTaskB(a, b, x, SizeB, ArrayB);
-		 for (int j = 0; j <= (SizeB - 1); j += 2)
-		 {
-			 cout << "x = " << ArrayB[j] << " | " << "y = " << ArrayB[j + 1] << endl;
-		 }
-		 char end;
-		 cin >> end;
-		 delete[] ArrayA;
-		 delete[] ArrayB;
-		 return 0;
-		
-			
-		/*int tmp = 45;  œ–»—¬¿»¬¿Õ»≈ ” ¿«¿“≈Àﬂ
-		int *link = &tmp;
-		cout << tmp << "\t" << &tmp << "\t" << link << "\t" << *link << endl;*/
-	
-
+int	 main()
+{
+	int a ;
+	cout << "Enter size of square" << endl;
+	cin >> a;
+	if (a >= 80) cout << "You are out of the bounce" << endl; 
+	if (a < 80 ) cout << "Do you want to draw main diagonal" << endl;
+	bool f;
+	cin >> f;
+	SquareWithD( a, f);
+	SquareWithOutD (a, f);
+	/*
+	if (f == "yes" || f == "Yes" && a < 80)
+	{
+		for (int i = 1; i <= a; i++)
+		{
+			for (int j = 1; j <= a; j++)
+			{
+				if ( i == 1 || i == a || j == 1 ||j == a || i == j)
+				cout << "*";
+				else cout << " ";
+			}
+			cout << endl;
+		}
 	}
-
-
-
-
+	if (f == "No" || f == "no" && a < 80 )
+	{
+		for (int i = 1; i <= a; i++)
+		{
+			for (int j = 1; j <= a; j++)
+			{
+				if (i == 1 || i == a || j == 1 || j == a)
+					cout << "*";
+				else cout << " ";
+			}
+			cout << endl;
+		}
+	}
+	*/
+	return 0;
+}
