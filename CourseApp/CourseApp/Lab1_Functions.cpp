@@ -1,21 +1,15 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include "Lab1_Functions.h"
 
 using namespace std;
-class ArrInfo
+
+ArrInfo::ArrInfo(int length)
 {
- public: 
-	 int length; 
-	 double *function;
-	 ArrInfo(int length)
-	 {
-		 this->length = length;
-		 this->function = new double[length];
-	 }
-
-};
-
+	this->length = length;
+	this->function = new double[length];
+}
 double calc(double a, double b, double x)
 {
 	double y;
@@ -42,11 +36,10 @@ double calc(double x)
 }
 
 ArrInfo taskA(double a, double b, double xn, double xk, double dx)
-{ 
-	cout << xn << xk << dx << endl;
+{
 	int size = (int)(abs(xk - xn) / dx);
 	ArrInfo info(size);
-	int i=0;
+	int i = 0;
 	for (double x = xn; x <= xk; x += dx)
 	{
 		info.function[i] = calc(a, b, x);
@@ -55,10 +48,13 @@ ArrInfo taskA(double a, double b, double xn, double xk, double dx)
 	return info;
 }
 
-void taskB(double a, double b, double *x, int size)
+ArrInfo taskB(double a, double b, double *x, int size)
 {
+	ArrInfo info(size);
+
 	for (int i = 0; i < size; i++)
 	{
-		double y = calc(a, b, x[i]);
+		info.function[i] = calc(a, b, x[i]);
 	}
+	return info;
 }

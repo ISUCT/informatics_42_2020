@@ -6,7 +6,8 @@ class ArrInfo
 public:
 	int length;
 	double *function;
+	ArrInfo(int length);
 
 };
 ArrInfo taskA(double a, double b, double xn, double xk, double dx);
-void taskB(double a, double b, double *x, int size);
+ArrInfo taskB(double a, double b, double *x, int size);
