@@ -1,5 +1,5 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
+
 
 #include <iostream>
 #include "Calc.h"
@@ -19,19 +19,19 @@ int main()
 	}
 	delete[] y;
 
-	double* y1;
 	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
 	cout << "_______________________" << endl;
 
-	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y1);
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
 
 	for (int i = 0; i < h; i++)
 	{
-		cout << x[i] << "\t" << y1[i] << endl;
+		cout << x[i] << "\t" << y[i] << endl;
 	}
-	delete[] y1;
 	return 0;
+
 }
+
 
 
 
