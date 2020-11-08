@@ -37,7 +37,7 @@ public:
         {
             for (int j = 0; j < this->buffer->getWidth(); j++)
             {
-                stream << this->buffer->get(j, i);
+                stream << this->buffer->get(j, i) << " ";
             }
 
             stream << std::endl;

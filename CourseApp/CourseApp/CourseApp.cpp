@@ -21,7 +21,7 @@ void drawSquare(int width, bool hasDiagonal = false)
 
 int main(int argc, char *argv[])
 {
-    drawSquare(20, true);
+    drawSquare(15, true);
 
     return 0;
 }
