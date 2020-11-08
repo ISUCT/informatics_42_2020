@@ -2,14 +2,26 @@
 
 #include "lab1/lab1.h"
 
+void drawSquare(int width, bool hasDiagonal = false)
+{
+    auto canvas = new Canvas(width, width);
+
+    Rectangle rectangle(0, 0, width, width);
+    canvas->draw(rectangle);
+
+    if (hasDiagonal)
+    {
+        Line line(0, 0, width, width);
+        canvas->draw(line);
+    }
+
+    canvas->output(std::cout);
+    delete canvas;
+}
+
 int main(int argc, char *argv[])
 {
-    auto canvas = new Canvas(20, 20);
-    Rectangle rectangle(20, 20);
+    drawSquare(20, true);
 
-    canvas->draw(rectangle);
-    canvas->output(std::cout);
-
-    delete canvas;
     return 0;
 }

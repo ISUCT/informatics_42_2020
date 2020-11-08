@@ -2,47 +2,41 @@
 #define INFORMATICS_42_2020_RECTANGLE_H
 
 #include "Figure.h"
+#include "Line.h"
 
 class Rectangle : public Figure
 {
 private:
+    int xStart;
+    int yStart;
     int width;
     int height;
 
 public:
-    Rectangle(int width, int height)
+    Rectangle(int xStart, int yStart, int width, int height)
     {
+        this->xStart = xStart;
+        this->yStart = yStart;
         this->width = width;
         this->height = height;
     }
 
     void draw(Canvas *canvas) override
     {
-        for (int y = 0; y < this->height; y++)
-        {
-            if (y == 0 || y + 1 == this->height)
-            {
-                for (int x = 0; x < this->width; x++)
-                {
-                    canvas->draw('*', x, y);
-                }
-            }
+        int rightX = xStart + width - 1;
+        int bottomY = xStart + height - 1;
 
-            canvas->draw('*', 0, y);
-            canvas->draw('*', this->width - 1, y);
+        Line topLine(xStart, yStart, rightX, yStart);
+        Line bottomLine(xStart, bottomY, rightX, bottomY);
 
-            canvas->draw('\n', this->width, y);
-        }
-    }
+        Line leftLine(xStart, yStart, xStart, bottomY);
+        Line rightLine(rightX, yStart, rightX, bottomY);
 
-    int getWidth() const
-    {
-        return this->width;
-    }
+        canvas->draw(topLine);
+        canvas->draw(bottomLine);
 
-    int getHeight() const
-    {
-        return this->height;
+        canvas->draw(leftLine);
+        canvas->draw(rightLine);
     }
 };
 
