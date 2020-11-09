@@ -23,17 +23,6 @@ public:
     {
         cout << "it`s okay " << endl;
     }
-    void sw_line(int height, int width, bool switch_line)
-    {
-        if (height == width)
-        {
-            switch_line == true;
-        }
-        else
-        {
-            switch_line == false;
-        }
-    }
     void value(int height, int width)
     {
         if ((height <= 0) || (width <= 0))
@@ -55,7 +44,6 @@ int main(int height, int width, double diagonal, char line, char obj, bool switc
     cout << "Line character : "; cin >> line;
     cout << "Object character : "; cin >> obj;
     cout << "Switch line (true / false) : "; cin >> switch_lineP;
-    sqr.sw_line(height, width, switch_line);
     sqr.diagonal_length(height, width, line);
 
     array = new char * [height];
