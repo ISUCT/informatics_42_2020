@@ -50,7 +50,7 @@ public:
 
         for (int i = 0; i < longest; i++)
         {
-            canvas->draw('*', x, y);
+            canvas->draw(x, y);
             numerator += shortest;
 
             if (numerator >= longest)

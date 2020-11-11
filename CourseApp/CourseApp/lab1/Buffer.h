@@ -4,7 +4,7 @@
 class Buffer
 {
 private:
-    char **buffer;
+    bool **buffer;
     int width;
     int height;
 
@@ -14,9 +14,9 @@ public:
         this->width = width;
         this->height = height;
 
-        this->buffer = new char*[height];
+        this->buffer = new bool*[height];
         for (int y = 0; y < height; y++)
-            this->buffer[y] = new char[width];
+            this->buffer[y] = new bool[width];
 
         this->clear();
     }
@@ -29,14 +29,14 @@ public:
         delete[] this->buffer;
     }
 
-    void put(char c, int x, int y)
+    void put(int x, int y)
     {
-        this->buffer[y][x] = c;
+        this->buffer[y][x] = true;
     }
 
-    char get(int x, int y)
+    bool is_empty(int x, int y)
     {
-        return this->buffer[y][x];
+        return !this->buffer[y][x];
     }
 
     void clear()
@@ -45,7 +45,7 @@ public:
         {
             for (int j = 0; j < this->width; j++)
             {
-                this->buffer[j][i] = ' ';
+                this->buffer[j][i] = false;
             }
         }
     }

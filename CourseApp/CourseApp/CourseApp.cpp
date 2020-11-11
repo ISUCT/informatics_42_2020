@@ -4,19 +4,18 @@
 
 void drawSquare(int width, bool hasDiagonal = false)
 {
-    auto canvas = new Canvas(width, width);
+    Canvas canvas(width, width, "■");
 
     Rectangle rectangle(0, 0, width, width);
-    canvas->draw(rectangle);
+    canvas.draw(rectangle);
 
     if (hasDiagonal)
     {
         Line line(0, 0, width, width);
-        canvas->draw(line);
+        canvas.draw(line);
     }
 
-    canvas->output(std::cout);
-    delete canvas;
+    canvas.output(std::cout);
 }
 
 int main(int argc, char *argv[])
