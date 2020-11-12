@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1605196136 source:c:\cbproject\kvadratek\main.cpp
+	<iostream>
+	<string>
+
