@@ -3,7 +3,8 @@
 #include <cmath>
 #include <string>
 #include <vector>
-#include "Lab1_Functions.h" 
+#include "Lab1_Functions.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -33,6 +34,22 @@ int main(int argc, char *argv[])
 
 	delete[] dataTaskA.function;
 	delete[] dataTaskB.function;
+
+	int length;
+	int	width;
+	string f;
+	cout << "Enter size of square"<< endl;
+	cin >> length >> width ;
+	cout << "Do you want to draw main diagonal" << endl;
+	cin >> f;
+	int size = length * width;
+	SquareWithD(size, length ,width);
+	SquareWithOutD(size, length, width);
+	/*
+	if (f == "Yes" || f == "yes") SquareWithD(L);
+	if (f == "No" || f == "no") SquareWithOutD(L);
+	*/
+	
 	return 0;
 }
 

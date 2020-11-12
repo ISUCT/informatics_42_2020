@@ -11,3 +11,5 @@ public:
 };
 ArrInfo taskA(double a, double b, double xn, double xk, double dx);
 ArrInfo taskB(double a, double b, double *x, int size);
+void SquareWithD (int size, int length, int width);
+void SquareWithOutD (int size, int length, int width);

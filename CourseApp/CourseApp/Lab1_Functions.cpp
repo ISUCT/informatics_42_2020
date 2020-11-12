@@ -58,3 +58,39 @@ ArrInfo taskB(double a, double b, double *x, int size)
 	}
 	return info;
 }
+
+void SquareWithD(int size, int length, int width)
+{
+	/*ArrInfo SquareParams(size);
+
+		for (int i = 0; i < size; i++)
+		{
+			SquareParams.function[i] = 0;
+		}
+
+		int j;
+
+		for (j = 0; j < size; j++)
+		{
+			if (j <= length ) SquareParams.function[j] = 1
+
+			
+		}
+     */
+
+}
+void SquareWithOutD(int size, int length, int width)
+{
+	ArrInfo SquareParams(size);
+
+		for (int i = 1; i <= length; i++)
+		{
+			for (int j = 1; j <= width; j++)
+			{
+				if (i == 1 || i == length || j == 1 || j == width)
+					SquareParams.function[i] = 1;
+				else SquareParams.function[i] = 0;
+			}
+			cout << endl;
+		}
+}
