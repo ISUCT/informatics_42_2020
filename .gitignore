@@ -422,6 +422,7 @@ cmake-build-*/
 out/
 
 # mpeltonen/sbt-idea plugin
+.idea/
 .idea_modules/
 
 # JIRA plugin
@@ -534,7 +535,7 @@ qrc_*.cpp
 ui_*.h
 *.qmlc
 *.jsc
-Makefile*
+# Makefile*
 *build-*
 *.qm
 *.prl
@@ -552,7 +553,7 @@ target_wrapper.*
 # QtCreator CMake
 CMakeLists.txt.user*
 
-# QtCreator 4.8< compilation database 
+# QtCreator 4.8< compilation database
 compile_commands.json
 
 # QtCreator local machine specific files for imported projects
@@ -944,7 +945,7 @@ CMakeCache.txt
 CMakeFiles
 CMakeScripts
 Testing
-Makefile
+# Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
@@ -1038,3 +1039,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.vscode/
