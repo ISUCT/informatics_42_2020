@@ -2,57 +2,51 @@
 #include <cmath>
 using namespace std;
 
-double calc(double a, double b, double x)
+void Q_in(bool mode_switcher, bool line_switcher, int height, int width, int ** array)
 {
-    double y = (asin(pow(x, a)) + acos(pow(x, b)));
-    return y;
-}
-int calcSizeA(double xn, double xk, double dx)
-{ 
-    int num = 0;
-    for (double x = xn; x <= xk; x += dx)
+    for (int i = 0; i < height; i++)
     {
-        num++;
-    }
-    return num;
-}
-void score_taskA(double a, double b, double xn, double xk, double dx, double *ArrayA)
-{
-    int i = 0;
-    for (double x = xn; x <= xk; x += dx)
-    {
-        double y = calc(a, b, x);
-        ArrayA[i] = x;       // Ввод элементов в массив X и Y через один для Task_A
-        i++;
-        ArrayA[i] = y;
-        i++;
-    }
-    return;
-}
-void task_A_out(int sizeA, double *ArrayA)
-{
-    for (int i = 0; i <= (sizeA - 1); i += 2)
-    {
-        cout << "x = " << ArrayA[i] << " | " << "y = " << ArrayA[i + 1] << endl;    // Вывод элементов X и Y через один для Task_A
+        for (int j = 0; j < width; j++)
+        {
+            if ((i == j) && (line_switcher == true))
+            {
+                array[i][j] = 0;
+            }
+            else if ((mode_switcher == true) && (i == 0) || (i == (height - 1)) || (j == 0) || (j == (width - 1)))
+            {
+                array[i][j] = 1;
+            }
+            else if (mode_switcher == false)
+            {
+                array[i][j] = 3;
+            }
+            else
+            {
+                array[i][j] = 2;
+            }
+
+        }
     }
 }
-void score_taskB(double a, double b, double *x, int sizeB, double *ArrayB)
+void Q_out(int height, int width, char obj, char line, int **array)
 {
-    int i = 0;
-    for (int n = 0; n <= ((sizeB/2)-1); n++)
+    for (int i = 0; i < height; i++)
     {
-        double y = calc(a, b, x[n]);
-        ArrayB[i] = x[n];       // Ввод элементов в массив X и Y через один для Task_B
-        i++;
-        ArrayB[i] = y;
-        i++;
-    }
-    return;
-}
-void task_B_out(int sizeB, double *ArrayB)
-{
-    for (int j = 0; j <= (sizeB - 1); j += 2)
-    {
-        cout << "x = " << ArrayB[j] << " | " << "y = " << ArrayB[j + 1] << endl;    // Вывод элементов X и Y через один для Task_B
+        for (int j = 0; j < width; j++)
+        {
+            if (array[i][j] == 0) {
+                cout << line << line;
+            }
+            else if (array[i][j] == 1) {
+                cout << obj << obj;
+            }
+            else if(array[i][j] == 2) {
+                cout << ' ' << ' ';
+            }
+            else if (array[i][j] == 3) {
+                cout << obj << obj;
+            }
+        }
+        cout << endl;
     }
 }
