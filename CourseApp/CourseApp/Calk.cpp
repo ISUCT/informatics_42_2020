@@ -1,7 +1,53 @@
 #include <iostream>
 #include <cmath>
 #include "Calk.h"
+#include <string>
+void fill(int x, int y) {
+	int** m = new int* [x];
+	for (int i = 0; i < x; i++) {
+		m[i] = new int[y];
+	}
+	int pr = 0;
+	if (x == y) { pr = 1; }
+	for (int i = 0; i < x; i++) {
+		for (int j = 0; j < y; j++) {
+			if ((i == x-1) || (j == y-1)||(j==0)||(i==0)) {
+				m[i][j] = 1;
+			}
+			else {
+				m[i][j] = 0;
+			}
+			if((pr == 1)&&(i-j == 0)){
+				m[i][j] = 1;
+			}
+			std::cout << m[i][j];
+		} std::cout << std::endl;
+	}
+	/*for (int i = 0; i < x; i++) {
+		delete[] m[i];
+	}
+	delete[] m;*/
+	std::string s;
+	std::cin >> s;
+	std::cout << "Your figur:" << std::endl;
+	for (int i = 0; i < x; i++) {
+		for (int j = 0; j < y; j++) {
+			if (m[i][j] == 1) {
+				std::cout << s <<" ";
+			}
+			else {
+				std::cout << "  ";
+			}
+		}std::cout << std::endl;
+	}
+	for (int i = 0; i < x; i++) {
+		delete[] m[i];
+	}
+	delete[] m;
+}
+void draw() {
 
+}
 void Task_A(double xs, double xe, double step, double a, double b) {
 	for (double i = xs; i <= xe; i += step) {
 		print(Calk(i, a, b));
