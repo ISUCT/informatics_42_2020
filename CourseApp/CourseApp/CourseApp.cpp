@@ -1,17 +1,12 @@
 #include <iostream>
-#include "calc.h"
-#include <malloc.h>
-#include <string>  
+#include "calc.h" 
 
 using namespace std;
 
 int main()
-{
-    Square sqr;
-    sqr.input_values();
-    sqr.create_array();
-    sqr.in_out_array();
-    sqr.delete_array();
-    sqr.test();
+{   
+    string name;
+    cout << "Enter name: "; cin >> name;
+    Square sqr(name);
     return 0;
 }
