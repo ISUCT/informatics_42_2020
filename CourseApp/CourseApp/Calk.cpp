@@ -2,7 +2,7 @@
 #include <cmath>
 #include "Calk.h"
 #include <string>
-void fill(int x, int y) {
+std::pair<int**, std::pair<int, int>> fill(int x, int y) {
 	int** m = new int* [x];
 	for (int i = 0; i < x; i++) {
 		m[i] = new int[y];
@@ -23,30 +23,23 @@ void fill(int x, int y) {
 			std::cout << m[i][j];
 		} std::cout << std::endl;
 	}
-	/*for (int i = 0; i < x; i++) {
-		delete[] m[i];
-	}
-	delete[] m;*/
+	int**& mRef = m;
+	return std::make_pair(mRef, std::make_pair(x, y));
+}
+void draw(int** m, int x, int y) {
 	std::string s;
 	std::cin >> s;
 	std::cout << "Your figur:" << std::endl;
 	for (int i = 0; i < x; i++) {
 		for (int j = 0; j < y; j++) {
 			if (m[i][j] == 1) {
-				std::cout << s <<" ";
+				std::cout << s << " ";
 			}
 			else {
 				std::cout << "  ";
 			}
 		}std::cout << std::endl;
 	}
-	for (int i = 0; i < x; i++) {
-		delete[] m[i];
-	}
-	delete[] m;
-}
-void draw() {
-
 }
 void Task_A(double xs, double xe, double step, double a, double b) {
 	for (double i = xs; i <= xe; i += step) {
