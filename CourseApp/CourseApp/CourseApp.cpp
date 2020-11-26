@@ -3,19 +3,29 @@
 
 #include <iostream>
 #include <math.h>
+#include "Calc.h"
+using namespace std;
 
 int main()
 {
-	const double a = 2.0;
-	const double b = 4.1;
-	double x = 0.77;
+	double *y;
+	int b = taskA(0.11, 0.36, 0.05,y);
+	for (int i = 0; i < b; i++)
+	{
+		cout << y[i] << endl;
+	}
+	double arr[] = {0.2,0.3,0.38,0.43,0.57};
+	cout << endl;
+	double *y1;
+	b=taskB(arr, sizeof(arr) / sizeof(arr[0]),y1);
+	for (int i = 0; i < b; i++)
+	{
+		cout << y1[i] << endl;
+	}
+	return 0;
 
-	double numerator = log((pow(b,2)-pow(x, 2)))/log(a);
-	double denominator = pow(abs(pow(x, 2) - pow(a, 2)), 1/3.0);
-	double y = numerator / denominator;
-	std::cout << "x = " << x <<std::endl;
-	std::cout << "y = " << y <<std::endl;
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
