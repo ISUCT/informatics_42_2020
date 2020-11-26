@@ -1,4 +1,4 @@
 double func(double x, double a);
-double taskA(double a, double xn, double xk, double dx, double *&arr);
+int taskA(double a, double xn, double xk, double dx, double *&arr);
 void ConsoleOut(int size, double *&arr);
 int taskB(double a, double *xs, int size2, double *&arr);
