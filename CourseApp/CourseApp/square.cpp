@@ -30,7 +30,7 @@ public:
         }
         delete[](matrix);
     }
-    void SquareWithDiag()
+    void DrawDiagonal()
     {
         for (int i = 0; i < SquareSide; i++)
         {
@@ -85,15 +85,21 @@ int main()
     switch (diagonal)
     {
         case 0:
+        {
             firstSquare.ConsoleOutMatrix();
             break;
+        }
         case 1:
-            firstSquare.SquareWithDiag();
+        {
+            firstSquare.DrawDiagonal();
             firstSquare.ConsoleOutMatrix();
             break;
+        }
         default:
+        {
             cout << "Wrong Choice" << endl;
             break;;
+        }
     }
     return 0;
 }

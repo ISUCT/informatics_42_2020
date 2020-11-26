@@ -8,42 +8,33 @@ double func(double x, double a)
     double y = pow(a,pow(x,2)-1) - log10(pow(x,2)-1) + pow(pow(x,2)-1, 1/3.0);
     return y;
 }
-int taskA(double a, double xn, double xk, double dx, double *&y1)
+int taskA(double a, double xn, double xk, double dx, double *&arr)
 {
     int i = 0;
-    int n = (xk-xn)/dx + 1;
-    y1 = new double [n];
+    int size1 = (xk-xn)/dx + 1;
+    arr = new double [size1]{};
     for(double x = xn; x <= xk; x += dx)
     {
         double y = func(a,x);
-        y1[i] = y;
+        arr[i] = y;
         i++;
     }
-    return n;
+    return size1;
 }
-void coutA(int n, double *&y1)
+void taskB(double a, double *xs, int size2, double *&arr)
 {
-    for (int i = 0; i < n; i++)
-    {
-        cout << y1[i] << endl;
-    }
-}
-int taskB(double a, double *xs, int size, double *&y2)
-{
-    y2 = new double [size];
-    for (int i = 0 ; i < size; i++)
+    arr = new double [size2];
+    for (int i = 0 ; i < size2; i++)
     {
         double x = xs[i];
         double y = func(a,x);
-        y2[i] = y;
+        arr[i] = y;
     }
-    return size;
 }
-void coutB(int size, double *&y2)
+void ConsoleOut(int size, double *&arr)
 {
-    cout << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << y2[i] << endl;
+        cout << arr[i] << endl;
     }
 }
