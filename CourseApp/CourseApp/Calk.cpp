@@ -26,9 +26,7 @@ std::pair<int**, std::pair<int, int>> fill(int x, int y) {
 	int**& mRef = m;
 	return std::make_pair(mRef, std::make_pair(x, y));
 }
-void draw(int** m, int x, int y) {
-	std::string s;
-	std::cin >> s;
+void draw(int** m, int x, int y,std::string s) {
 	std::cout << "Your figur:" << std::endl;
 	for (int i = 0; i < x; i++) {
 		for (int j = 0; j < y; j++) {

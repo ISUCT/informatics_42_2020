@@ -7,7 +7,9 @@ int main()
 	int x, y;
 	std::cin >> x >> y;
 	g = fill(x, y);
-	draw(g.first, g.second.first, g.second.second);
+	std::string s;
+	std::cin >> s;
+	draw(g.first, g.second.first, g.second.second,s);
 
 	double a = 2.0;
 	double b = 0.95;
