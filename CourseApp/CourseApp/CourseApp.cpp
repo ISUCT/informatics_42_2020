@@ -1,19 +1,29 @@
 
 #include <iostream>
-#include <math.h>
+#include "Calc.h"
+using namespace std;
 
-int main() {
+
+int main()
+{
 	const double a = 1.35;
 	const double b = 0.98;
+	double* y;
+	int h =taskA(a, b, 1.14, 4.24, 0.62, y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << y[i] << endl;
 
-	double dx = 0.62;
-	for (double x = 1.14; x <= 4.24; x += dx) {
-		double numerator = pow(a * x + b, 1 / 3);
-		double denominator = pow(log10(x), 2);
-		double y = numerator / denominator;
-
-		std::cout << "x = " << x << std::endl;
-		std::cout << "y = " << y << std::endl;
 	}
+	delete[] y;
+	double* y1;
+	double arr[] = { 0.35, 1.28, 3.51, 5.21, 4.16 };
+	cout << "-----------------------" << endl;
+	h = taskB(a, b, arr, sizeof(arr) / sizeof(arr[0]), y1);
+	for (int i = 0; i < h; i++)
+	{
+		cout << arr[i] << "\t" << y1[i] << endl;
+	}
+	delete[] y1;
 	return 0;
-}
+} 
