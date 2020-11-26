@@ -36,7 +36,7 @@ public:
         {
             for (int j = 0; j < SquareSide; j++)
             {
-                if (i == 0 || i == (SquareSide-1) || j == 0 || j == (SquareSide-1) || i == j)
+                if (i == j)
                 {
                     matrix[i][j] = true;
                 }
@@ -81,10 +81,10 @@ int main()
     int diagonal;
     cout << "Do you want to have a diagonal? (0 - No, 1 - Yes)" << endl;
     cin >> diagonal;
+    firstSquare.SquareWithOutDiag();
     switch (diagonal)
     {
         case 0:
-            firstSquare.SquareWithOutDiag();
             firstSquare.ConsoleOutMatrix();
             break;
         case 1:
