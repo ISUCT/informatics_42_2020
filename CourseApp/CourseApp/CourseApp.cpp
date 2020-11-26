@@ -1,27 +1,38 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
+
 
 #include <iostream>
-#include <cmath>
-
+#include "Calc.h"
 using namespace std;
 
 int main()
 {
-	float a = 1.2;
-	float b = 0.48;
-	float xn = 0.7;
-	float xk = 2.2;
-	float y;
 
-	for (xn; xn<=xk; xn+=0.3)
+	const double a = 1.2;
+	const double b = 0.48;
+	double* y;
+
+	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
+	for (int i = 0; i < h; i++)
 	{
-		y =(pow(b, 3) + (sin(a * xn) * sin(a * xn))) / ((acos(xn * b * xn)) + exp(-xn / 2));
-		cout << "x= " << xn << " y= " << y << endl;
-
+		cout << y[i] << endl;
 	}
-	
+	delete[] y;
+
+	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
+	cout << "_______________________" << endl;
+
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
+
+	for (int i = 0; i < h; i++)
+	{
+		cout << x[i] << "\t" << y[i] << endl;
+	}
+	return 0;
+
 }
+
+
 
 
 
