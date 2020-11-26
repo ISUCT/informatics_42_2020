@@ -3,109 +3,181 @@
 #include <malloc.h>
 #include <string> 
 #include <cstdlib>
-
-void draw(int height, int width, char obj, char line, int** array);
-
 using namespace std;
 
-class Square
+double calc(double a, double b, double x);
+void calcA(double xn, double xk, double dx, int* pSizeA);
+void Score_taskA(double a, double b, double xn, double xk, double dx, double* ArrayA);
+void Score_taskB(double a, double b, double* x, int SizeB, double* ArrayB);
+
+////////////////////////////
+
+int lenght;
+char obj;
+char line;
+
+class Interface
 {
 public:
-    int width = 0;
-    int height = 0;
-    int** array;
-
-    Square(string name)
+    string name;
+    void input_lenght_obj()
     {
+        cout << "Enter name : "; cin >> name;
         system("cls");
-        cout << "Enter width and height" << endl;
-        cout << "Height : "; cin >> height;
-        cout << "Width : "; cin >> width;
-        while ((height <= 0) || (width <= 0))
+        cout << "Enter lenght : ";  cin >> lenght;
+        while (lenght <= 0)
         {
             system("cls");
-            cout << "Enter correct width and height" << endl;
-            cout << "Height : "; cin >> height;
-            cout << "Width : "; cin >> width;
+            cout << "Enter correct lenght : "; cin >> lenght;
         }
         cout << "Line character : "; cin >> line;
         cout << "Object character : "; cin >> obj;
         system("cls");
+    }
+};
 
-
-
-        array = new int* [height];
-        for (int i = 0; i < height; i++)
+class Square
+{
+public:
+    int** array;
+    Square(string name)
+    {
+        array = new int* [lenght];
+        for (int i = 0; i < (lenght); i++)
         {
-            array[i] = new int[width];
+            array[i] = new int[lenght];
         }
+    }
+    void actions()
+    {
         while (str != "delete")
         {
+            print();
             cout << "Choose action : "; cin >> str;
-            system("cls");
-            if (str == "draw")
+            if ((str == "draw") || (str == "create"))
             {
-                for (int i = 0; i < height; i++)
-                {
-                    for (int j = 0; j < width; j++)
-                    {
-                        if ((i == 0) || (i == (height - 1)) || (j == 0) || (j == (width - 1)))
-                        {
-                            array[i][j] = 0;
-                        }
-                        else
-                        {
-                            array[i][j] = 2;
-                        }
-                    }
-                }
-                cout << endl;
+                draw();
             }
-            else if (str == "diagonal")
+            else if ((str == "diagonal") || (str == "line"))
             {
-                for (int i = 0; i < height; i++)
-                {
-                    for (int j = 0; j < width; j++)
-                    {
-                        if ((i == j) && (i != 0) && (j != 0) && (i != (height - 1)) && (j != (width - 1)))
-                        {
-                            array[i][j] = 1;
-                        }
-                    }
-                }
-                cout << endl;
+                diagonal();
             }
             else if (str == "fill")
             {
-                for (int i = 0; i < height; i++)
-                {
-                    for (int j = 0; j < width; j++)
-                    {
-                        array[i][j] = 0;
-                    }
-                }
-                cout << endl;
+                fill();
             }
-            else if (str == "name")
+            else if (str == "clear")
             {
-                cout << "Square name is : " << name << endl;
+                clear();
             }
-            draw(height, width, obj, line, array);
-            cout << endl;
         }
+        system("cls");
     }
-
     ~Square() {
         system("cls");
-        cout << "deleted";
-        for (int i = 0; i < height; i++)
+        cout << "Goodbye ;)" << endl;
+        for (int i = 0; i < lenght; i++)
         {
             delete[] array[i];
         }
         delete[] array;
     }
 private:
-    char line = ' ';
-    char obj = ' ';
     string str;
+    void print()
+    {
+        system("cls");
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if (array[i][j] == 1)
+                {
+                    cout << line << line;
+                }
+                else if (array[i][j] == 0)
+                {
+                    cout << obj << obj;
+                }
+                else if (array[i][j] == 2)
+                {
+                    cout << ' ' << ' ';
+                }
+                else if (array[i][j] == 9)
+                {
+                    cout << '.' << '.';
+                }
+                else
+                {
+                    cout << '.' << '.';
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+        print_actions();
+    }
+    void print_actions()
+    {
+        cout << "You can draw : " << endl;
+        cout << "  1) box -> draw / create" << endl;
+        cout << "  2) diagonal -> diagonal / line" << endl;
+        cout << "  3) fill box -> fill" << endl;
+        cout << "  4) clear all -> clear" << endl;
+        cout << "  5) delete all and exit -> delete" << endl;
+    }
+    void draw()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if ((i == 0) || (i == (lenght - 1)) || (j == 0) || (j == (lenght - 1)))
+                {
+                    array[i][j] = 0;
+                }
+                else
+                {
+                    array[i][j] = 2;
+                }
+            }
+        }
+        cout << endl;
+    }
+    void fill()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                array[i][j] = 0;
+            }
+        }
+        cout << endl;
+    }
+    void diagonal()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if ((i == j) && (i != 0) && (j != 0) && (i != (lenght - 1)) && (j != (lenght - 1)))
+                {
+                    array[i][j] = 1;
+                }
+            }
+        }
+        cout << endl;
+    }
+    void clear()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                array[i][j] = 9;
+            }
+        }
+        cout << endl;
+    }
 };
