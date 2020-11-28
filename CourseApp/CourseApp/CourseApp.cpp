@@ -1,20 +1,17 @@
 #include <iostream>
-#include "calc.h"
 using namespace std;
 
 class Square
 {
 private:
-    int size;
+    int size=0;
     char** array;
-    bool f;
-    int offsetX = 0, offsetY = 0;
+    int offsetX = 0;
+    int offsetY = 0;
 public:
     Square(int s)
     {
         size = s;
-        cout << "Do you want to display the diagonal? " << endl;
-        cin >> f;
         array = new char* [size];
         for (int i = 0; i < size; i++) {
             array[i] =new char[size];
@@ -24,7 +21,6 @@ public:
         };
     }
     void printWithOffset() {
-        if (f==1)
         for (int i = 0; i < size + offsetY; i++) {
             for (int j = 0; j < size + offsetX; j++) {
                 if (i < offsetY or j < offsetX) {
@@ -40,7 +36,6 @@ public:
         };
     };
     void printWithOffsetDiag() {
-        if (f == 0)
             for (int i = 0; i < size + offsetY; i++) {
                 for (int j = 0; j < size + offsetX; j++) {
                     if (i < offsetY or j < offsetX) {
@@ -60,14 +55,18 @@ public:
         offsetX = --x;
         offsetY = --y;
     }
+
 };
 
 int main()
 {
+    bool f;
+    cout << "Do you want to display the diagonal? " << endl;
+    cin >> f;
     Square newSquare(10);
     newSquare.setOffset(15,7);
-    newSquare.printWithOffset();
     newSquare.printWithOffsetDiag();
+    if (f==1) newSquare.printWithOffset();
     return 0;
 }
 
