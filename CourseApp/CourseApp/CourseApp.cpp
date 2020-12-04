@@ -1,72 +1,68 @@
 #include <iostream>
 using namespace std;
-
-class Square
-{
+class Square {
 private:
-    int size=0;
+    int size = 0;
     char** array;
     int offsetX = 0;
     int offsetY = 0;
+
 public:
-    Square(int s)
-    {
+    Square(int s, char n) {
         size = s;
         array = new char* [size];
+
         for (int i = 0; i < size; i++) {
-            array[i] =new char[size];
+            array[i] = new char[size];
             for (int j = 0; j < size; j++) {
-                array[i][j] = '*';
+                if (i == 0 or j == 0) {
+                    array[i][j] = n;
+                }
+                else if (i == size - 1 or j == size - 1) {
+                    array[i][j] = n;
+                }
+                else {
+                    array[i][j] = ' ';
+                };
             };
         };
     }
-    void printWithOffset() {
+    void setDiagonal(bool x) {
+        if (x)
+            for (int i = 0; i < size; i++)
+                array[i][i] = array[0][0];
+    }
+
+    void print() {
         for (int i = 0; i < size + offsetY; i++) {
             for (int j = 0; j < size + offsetX; j++) {
-                if (i < offsetY or j < offsetX) {
-                    cout << ' ' << ' ';
-                }
-                else {
-                    if (i == offsetY || i == size + offsetY - 1 || j == offsetX || j == size + offsetX - 1 || j-offsetX==i-offsetY)
-                        cout << array[i - offsetY][j - offsetX] << ' ';
-                    else cout << "  ";
-                }
-            };
+                if (i - offsetY < 0 or j - offsetX < 0)
+                    cout << "  ";
+                else
+                    cout << array[i - offsetY][j - offsetX] << ' ';
+            }
             cout << '\n';
         };
     };
-    void printWithOffsetDiag() {
-            for (int i = 0; i < size + offsetY; i++) {
-                for (int j = 0; j < size + offsetX; j++) {
-                    if (i < offsetY or j < offsetX) {
-                        cout << ' ' << ' ';
-                    }
-                    else {
-                        if (i == offsetY || i == size + offsetY - 1 || j == offsetX || j == size + offsetX - 1)
-                            cout << array[i - offsetY][j - offsetX] << ' ';
-                        else cout << "  ";
-                    }
-                };
-                cout << '\n';
-            };
-    };
 
     void setOffset(int x, int y) {
-        offsetX = --x;
-        offsetY = --y;
+        offsetX = x;
+        offsetY = y;
     }
-
 };
 
 int main()
 {
+    Square newSquare(10, '$');
+
     bool f;
     cout << "Do you want to display the diagonal? " << endl;
     cin >> f;
-    Square newSquare(10);
-    newSquare.setOffset(15,7);
-    newSquare.printWithOffsetDiag();
-    if (f==1) newSquare.printWithOffset();
+
+    newSquare.setDiagonal(f);
+    newSquare.setOffset(5, 4);
+    newSquare.print();
     return 0;
 }
+
 
