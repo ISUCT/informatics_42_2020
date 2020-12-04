@@ -1,34 +1,72 @@
 // CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
+using namespace std;
+class Square
+{
+private:
+    int size = 0;
+    char** array;
+    int movingX = 0;
+    int movingY = 0;
+public:
+    Square(int a, char b)
+    {
+        size = a;
+        array = new char* [size];
+
+        for (int i = 0; i < size; i++) {
+            array[i] = new char[size];
+            for (int j = 0; j < size; j++) {
+                array[i][j] = b;
+            };
+        };
+    }
+    void printWithmoving() {
+        for (int i = 0; i < size + movingY; i++) {
+            for (int j = 0; j < size + movingX; j++) {
+                if (i < movingY or j < movingX) {
+                    cout << ' ' << ' ';
+                }
+                else {
+                    if (j - movingX == i - movingY)
+                        cout << array[i - movingY][j - movingX] << ' ';
+                    else cout << "  ";
+                }
+            };
+            cout << '\b';
+        };
+    };
+    void printWithmovingDiag() {
+        for (int i = 0; i < size + movingY; i++) {
+            for (int j = 0; j < size + movingX; j++) {
+                if (i < movingY or j < movingX) {
+                    cout << ' ' << ' ';
+                }
+                else {
+                    if (i == movingY || i == size + movingY - 1 || j == movingX || j == size + movingX - 1)
+                        cout << array[i - movingY][j - movingX] << ' ';
+                    else cout << "  ";
+                }
+            };
+            cout << '\b';
+        };
+    };
+    void move(int x, int y) {
+        movingX = --x;
+        movingY = --y;
+    }
+
+};
 
 int main()
 {
-	const double a = 2.5;
-
-	const double b = 4.6;
-	
-	for (double x = 0.5; x <= 3.6;x += 0.5) {
-
-		double numerator = pow((a + b * x), 2.5);
-		double denominator = 1 + log(a + b * x);
-		double y = numerator / denominator;
-
-		std::cout << "x=" << x << "\ny=" << y << std::endl;
-	}
-	int end;
-	std::cin >> end;
-		return 0;
+    bool c;
+    cout << " Вывести диагональ? " << endl;
+    cin >> c;
+    Square newSquare(7, '$');
+    newSquare.move(5, 3);
+    newSquare.printWithmovingDiag();
+    if (c == 1) newSquare.printWithmoving();
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
