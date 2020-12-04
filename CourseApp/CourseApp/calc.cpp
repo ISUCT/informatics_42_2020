@@ -7,7 +7,6 @@ double calc(double a, double b, double x)
     double y = (asin(pow(x, a)) + acos(pow(x, b)));
     return y;
 }
-
 void calcA(double xn, double xk, double dx, int* pSizeA)
 {
     int num = *pSizeA;
@@ -17,7 +16,6 @@ void calcA(double xn, double xk, double dx, int* pSizeA)
     }
     *pSizeA = num;
 }
-
 void Score_taskA(double a, double b, double xn, double xk, double dx, double* ArrayA)
 {
     int i = 0;
@@ -31,7 +29,6 @@ void Score_taskA(double a, double b, double xn, double xk, double dx, double* Ar
     }
     return;
 }
-
 void Score_taskB(double a, double b, double* x, int SizeB, double* ArrayB)
 {
     int i = 0;

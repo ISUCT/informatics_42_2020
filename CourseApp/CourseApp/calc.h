@@ -12,41 +12,27 @@ void Score_taskB(double a, double b, double* x, int SizeB, double* ArrayB);
 
 ////////////////////////////
 
-int lenght;
-char obj;
-char line;
-
 class Interface
 {
-public:
-    string name;
-    void input_lenght_obj()
+public: 
+    int lenght;
+    char obj;
+    char line;
+    int** array;
+    Interface(int **array, int lenght)
     {
-        cout << "Enter name : "; cin >> name;
-        system("cls");
-        cout << "Enter lenght : ";  cin >> lenght;
-        while (lenght <= 0)
-        {
-            system("cls");
-            cout << "Enter correct lenght : "; cin >> lenght;
-        }
+        this->array = array;
+        this->lenght = lenght;
+        set_obj_line();
+        actions();
+    }
+private:
+    string str;
+    void set_obj_line()
+    {
         cout << "Line character : "; cin >> line;
         cout << "Object character : "; cin >> obj;
         system("cls");
-    }
-};
-
-class Square
-{
-public:
-    int** array;
-    Square(string name)
-    {
-        array = new int* [lenght];
-        for (int i = 0; i < (lenght); i++)
-        {
-            array[i] = new int[lenght];
-        }
     }
     void actions()
     {
@@ -73,17 +59,6 @@ public:
         }
         system("cls");
     }
-    ~Square() {
-        system("cls");
-        cout << "Goodbye ;)" << endl;
-        for (int i = 0; i < lenght; i++)
-        {
-            delete[] array[i];
-        }
-        delete[] array;
-    }
-private:
-    string str;
     void print()
     {
         system("cls");
@@ -115,10 +90,6 @@ private:
             cout << endl;
         }
         cout << endl;
-        print_actions();
-    }
-    void print_actions()
-    {
         cout << "You can draw : " << endl;
         cout << "  1) box -> draw / create" << endl;
         cout << "  2) diagonal -> diagonal / line" << endl;
@@ -161,7 +132,7 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                if ((i == j) && (i != 0) && (j != 0) && (i != (lenght - 1)) && (j != (lenght - 1)))
+                if ((i == j) && (array[i][j] != 0))
                 {
                     array[i][j] = 1;
                 }
@@ -179,5 +150,41 @@ private:
             }
         }
         cout << endl;
+    }
+};
+class Square
+{
+public:
+    int lenght;
+    int** array;
+    Square()
+    {
+        set_lenght();
+        array = new int* [lenght];
+        for (int i = 0; i < (lenght); i++)
+        {
+            array[i] = new int[lenght];
+        }
+    }
+    ~Square() 
+    {
+        system("cls");
+        cout << "Goodbye ;)" << endl;
+        for (int i = 0; i < lenght; i++)
+        {
+            delete[] array[i];
+        }
+        delete[] array;
+    } 
+private:
+    void set_lenght()
+    {
+        cout << "Enter lenght : ";  cin >> lenght;
+        while (lenght <= 0)
+        {
+            system("cls");
+            cout << "Enter correct lenght : "; cin >> lenght;
+        }
+        system("cls");
     }
 };

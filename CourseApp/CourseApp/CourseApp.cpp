@@ -7,14 +7,12 @@ int main()
 {
     cout << "laboratory - 2" << endl;
 
-    Interface intr;
-    intr.input_lenght_obj();
-    Square sqr(intr.name);
-    sqr.actions();
+    Square sqr;
+    Interface intr(sqr.array, sqr.lenght);
+   
+    ////////////////////////////
 
-    ////////////////////////////////////////////////////////////////
-
-    cout << "laboratory - 2" << endl;
+    cout << "laboratory - 1" << endl;
 
     const double a = 2.0;
     const double b = 3.0;
