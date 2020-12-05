@@ -80,28 +80,24 @@ int main()
 
     int SizeA = 0;
     int SizeB = 0;
-    int* pSizeA = &SizeA;
+
     double x[] = { 1.88 ,2.26 ,3.84 ,4.55 ,-6.21 };
+
     const double a = 0.8;
     const double b = 0.4;
-    taskA(1.23, 7.23, 1.2, pSizeA);
-    SizeA = SizeA * 2;
+
+    SizeA = init(1.23, 7.23, 1.2, SizeA) * 2;
     double* ArrayA = new double[SizeA];
+
     SizeB = ((sizeof(x) / sizeof(x[0])) * 2);
     double* ArrayB = new double[SizeB];
+
     ScoreTaskA(a, b, 1.23, 7.23, 1.2, ArrayA);
-    for (int i = 0; i <= (SizeA - 1); i += 2)
-    {
-        cout << "x = " << ArrayA[i] << " | " << "y = " << ArrayA[i + 1] << endl;
-    }
-    cout << "--------------" << endl;
+    outputA(SizeA,ArrayA);
+
     ScoreTaskB(a, b, x, SizeB, ArrayB);
-    for (int j = 0; j <= (SizeB - 1); j += 2)
-    {
-        cout << "x = " << ArrayB[j] << " | " << "y = " << ArrayB[j + 1] << endl;
-    }
-    char end;
-    cin >> end;
+    outputB(SizeB,ArrayB);
+
     delete[] ArrayA;
     delete[] ArrayB;
     return 0;
