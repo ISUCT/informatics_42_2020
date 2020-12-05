@@ -1,31 +1,45 @@
 #include <iostream>
-#include <string>
-using namespace std;
-void SquareWithD(int a, bool f)
+#include <cmath>
+double calc(double a, double b, double x)
 {
-	if (f == 1)
-		for (int i = 1; i <= a; i++)
-		{
-			for (int j = 1; j <= a; j++)
-			{
-				if (i == 1 || i == a || j == 1 || j == a || i == j)
-					cout << "*";
-				else cout << " ";
-			}
-			cout << endl;
-		}
+	double numenator = pow(pow(x - a, 2), 1 / 3.0) + pow(abs(x + b), 1 / 5.0);
+	double denominator = pow(pow(x, 2) - pow(a - b, 2), 1 / 9.0);
+	double y = numenator / denominator;
+	return y;
 }
-void SquareWithOutD(int a, bool f)
+void taskA(double xn, double xk, double dx, int* pSizeA)
 {
-	if (f == 0)
-		for (int i = 1; i <= a; i++)
-		{
-			for (int j = 1; j <= a; j++)
-			{
-				if (i == 1 || i == a || j == 1 || j == a)
-					cout << "*";
-				else cout << " ";
-			}
-			cout << endl;
-		}
+	int numer = *pSizeA;
+	for (double x = xn; x <= xk; x += dx)
+	{
+		numer++;
+	}
+	*pSizeA = numer;
 }
+void ScoreTaskA(double a, double b, double xn, double xk, double dx, double* ArrayA)
+{
+	int i = 0;
+	for (double x = xn; x <= xk; x += dx)
+	{
+		double y = calc(a, b, x);
+		ArrayA[i] = x;
+		i++;
+		ArrayA[i] = y;
+		i++;
+	}
+	return;
+}
+void ScoreTaskB(double a, double b, double* x, int SizeB, double* ArrayB)
+{
+	int i = 0;
+	for (int n = 0; n <= ((SizeB / 2) - 1); n++)
+	{
+		double y = calc(a, b, x[n]);
+		ArrayB[i] = x[n];
+		i++;
+		ArrayB[i] = y;
+		i++;
+	}
+	return;
+}
+
