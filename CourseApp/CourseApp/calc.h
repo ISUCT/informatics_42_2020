@@ -1,33 +1,37 @@
 #pragma once
 #include <iostream>
-#include <malloc.h>
-#include <string> 
 #include <cstdlib>
+#include <vector>
+#include <cmath>
 using namespace std;
-
-double calc(double a, double b, double x);
-void calcA(double xn, double xk, double dx, int* pSizeA);
-void Score_taskA(double a, double b, double xn, double xk, double dx, double* ArrayA);
-void Score_taskB(double a, double b, double* x, int SizeB, double* ArrayB);
-
-////////////////////////////
-
 class Interface
 {
 public: 
-    int lenght;
-    char obj;
-    char line;
-    int** array;
-    Interface(int **array, int lenght)
+    Interface(vector<vector<int>> matrix)
     {
-        this->array = array;
-        this->lenght = lenght;
+        this->matrix = matrix;
+        set_lenght();
         set_obj_line();
+        clear();
         actions();
     }
 private:
-    string str;
+    int lenght;
+    char obj;
+    char line;
+    vector<vector<int>> matrix;
+    int variant;
+    void set_lenght()
+    {
+        cout << "Enter lenght : ";  cin >> lenght;
+        while (lenght <= 0)
+        {
+            system("cls");
+            cout << "Enter correct lenght : "; cin >> lenght;
+        }
+        system("cls");
+        matrix.resize(lenght, vector<int>(lenght));
+    }
     void set_obj_line()
     {
         cout << "Line character : "; cin >> line;
@@ -36,25 +40,24 @@ private:
     }
     void actions()
     {
-        while (str != "delete")
+        while (variant != 5)
         {
             print();
-            cout << "Choose action : "; cin >> str;
-            if ((str == "draw") || (str == "create"))
+            cout << "Choose action : "; cin >> variant;
+            switch (variant) 
             {
+            case 1:
                 draw();
-            }
-            else if ((str == "diagonal") || (str == "line"))
-            {
+                break;
+            case 2:
                 diagonal();
-            }
-            else if (str == "fill")
-            {
+                break;
+            case 3:
                 fill();
-            }
-            else if (str == "clear")
-            {
+                break;
+            case 4:
                 clear();
+                break;
             }
         }
         system("cls");
@@ -66,36 +69,31 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                if (array[i][j] == 1)
+                switch (matrix[i][j])
                 {
-                    cout << line << line;
-                }
-                else if (array[i][j] == 0)
-                {
+                case 0:
                     cout << obj << obj;
-                }
-                else if (array[i][j] == 2)
-                {
+                    break;
+                case 1:
+                    cout << line << line;
+                    break;
+                case 2:
                     cout << ' ' << ' ';
-                }
-                else if (array[i][j] == 9)
-                {
+                    break;
+                case 3:
                     cout << '.' << '.';
-                }
-                else
-                {
-                    cout << '.' << '.';
+                    break;
                 }
             }
             cout << endl;
         }
         cout << endl;
-        cout << "You can draw : " << endl;
-        cout << "  1) box -> draw / create" << endl;
-        cout << "  2) diagonal -> diagonal / line" << endl;
-        cout << "  3) fill box -> fill" << endl;
-        cout << "  4) clear all -> clear" << endl;
-        cout << "  5) delete all and exit -> delete" << endl;
+        cout << "You can : " << endl;
+        cout << "  1) draw box" << endl;
+        cout << "  2) draw diagonal" << endl;
+        cout << "  3) fill box" << endl;
+        cout << "  4) clear all" << endl;
+        cout << "  5) delete all and exit" << endl;
     }
     void draw()
     {
@@ -105,11 +103,11 @@ private:
             {
                 if ((i == 0) || (i == (lenght - 1)) || (j == 0) || (j == (lenght - 1)))
                 {
-                    array[i][j] = 0;
+                    matrix[i][j] = 0;
                 }
                 else
                 {
-                    array[i][j] = 2;
+                    matrix[i][j] = 2;
                 }
             }
         }
@@ -121,7 +119,7 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                array[i][j] = 0;
+                matrix[i][j] = 0;
             }
         }
         cout << endl;
@@ -132,9 +130,13 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                if ((i == j) && (array[i][j] != 0))
+                if ((i == j) && (matrix[i][j] != 0))
                 {
-                    array[i][j] = 1;
+                    matrix[i][j] = 1;
+                }
+                else
+                {
+                    matrix[i][j] = 2;
                 }
             }
         }
@@ -146,7 +148,7 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                array[i][j] = 9;
+                matrix[i][j] = 3;
             }
         }
         cout << endl;
@@ -155,36 +157,70 @@ private:
 class Square
 {
 public:
-    int lenght;
-    int** array;
+    vector<vector<int>> matrix;
     Square()
     {
-        set_lenght();
-        array = new int* [lenght];
-        for (int i = 0; i < (lenght); i++)
-        {
-            array[i] = new int[lenght];
-        }
+        matrix.resize(lenght, vector<int>(lenght));
     }
     ~Square() 
     {
         system("cls");
-        cout << "Goodbye ;)" << endl;
-        for (int i = 0; i < lenght; i++)
-        {
-            delete[] array[i];
-        }
-        delete[] array;
+        matrix.clear();
     } 
 private:
-    void set_lenght()
-    {
-        cout << "Enter lenght : ";  cin >> lenght;
-        while (lenght <= 0)
-        {
-            system("cls");
-            cout << "Enter correct lenght : "; cin >> lenght;
-        }
-        system("cls");
-    }
+    int lenght = 0;
 };
+class Function
+{
+public:
+
+    Function()
+    {
+        calculation();
+        vectorx_size();
+        calculation();
+    }
+    ~Function()
+    {
+        char end;
+        cin >> end;
+    }
+private:
+    const double a = 2.0;
+    const double b = 3.0;
+    double xn = 0.11;
+    double xk = 0.36;
+    double dx = 0.05;
+    int size = 0;
+    vector<double> vectorx = { 0.08, 0.26, 0.35, 0.41, 0.53 };
+    vector<double> vectory;
+    void calculation()
+    {
+        vectory.resize(vectorx.size());
+        for (int i = 0; i < vectorx.size(); i++)
+        {
+            vectory[i] = (asin(pow(vectorx[i], a)) + acos(pow(vectorx[i], b)));;
+        }     
+        print_function();
+    }
+    void vectorx_size()
+    {
+        vectorx.clear();
+        size = (((xk - xn) / dx) + 1);
+        vectorx.resize(size);
+        for (int i = 0; i < vectorx.size(); i++)
+        {
+            vectorx[i] = xn;
+            xn += dx;
+        }
+    }
+    void print_function()
+    {
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        for (int i = 0; i < vectorx.size(); i++)
+        {
+            cout << "x = " << vectorx[i] << '\t' << "y = " << vectory[i] << endl;
+        }        
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    }
+}; 
