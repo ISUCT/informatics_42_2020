@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+using namespace std;
 double calc(double a, double b, double x)
 {
 	double numenator = pow(pow(x - a, 2), 1 / 3.0) + pow(abs(x + b), 1 / 5.0);
@@ -7,14 +8,14 @@ double calc(double a, double b, double x)
 	double y = numenator / denominator;
 	return y;
 }
-void taskA(double xn, double xk, double dx, int* pSizeA)
+int  init(double xn, double xk, double dx, int SizeA)
 {
-	int numer = *pSizeA;
+	int numer = SizeA;
 	for (double x = xn; x <= xk; x += dx)
 	{
 		numer++;
 	}
-	*pSizeA = numer;
+	return numer;
 }
 void ScoreTaskA(double a, double b, double xn, double xk, double dx, double* ArrayA)
 {
@@ -41,5 +42,18 @@ void ScoreTaskB(double a, double b, double* x, int SizeB, double* ArrayB)
 		i++;
 	}
 	return;
+}
+void outputA(int SizeA, double* ArrayA) {
+	for (int i = 0; i <= (SizeA - 1); i += 2)
+	{
+		cout << "x = " << ArrayA[i] << " | " << "y = " << ArrayA[i + 1] << endl;
+	}
+	cout << "-------------" << endl;
+}
+void outputB(int SizeB, double* ArrayB) {
+	for (int j = 0; j <= (SizeB - 1); j += 2)
+	{
+		cout << "x = " << ArrayB[j] << " | " << "y = " << ArrayB[j + 1] << endl;
+	}
 }
 
