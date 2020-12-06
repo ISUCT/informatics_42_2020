@@ -78,9 +78,6 @@ private:
                     cout << line << line;
                     break;
                 case 2:
-                    cout << ' ' << ' ';
-                    break;
-                case 3:
                     cout << '.' << '.';
                     break;
                 }
@@ -104,10 +101,6 @@ private:
                 if ((i == 0) || (i == (lenght - 1)) || (j == 0) || (j == (lenght - 1)))
                 {
                     matrix[i][j] = 0;
-                }
-                else
-                {
-                    matrix[i][j] = 2;
                 }
             }
         }
@@ -134,10 +127,6 @@ private:
                 {
                     matrix[i][j] = 1;
                 }
-                else
-                {
-                    matrix[i][j] = 2;
-                }
             }
         }
         cout << endl;
@@ -148,7 +137,7 @@ private:
         {
             for (int j = 0; j < lenght; j++)
             {
-                matrix[i][j] = 3;
+                matrix[i][j] = 2;
             }
         }
         cout << endl;
