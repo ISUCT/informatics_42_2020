@@ -9,19 +9,17 @@ class Interface
 public: 
     Interface(vector<vector<int>> matrix)
     {
-        this->matrix = matrix;
-        set_lenght();
+        set_lenght(matrix);
         set_obj_line();
-        clear();
-        actions();
+        clear(matrix);
+        actions(matrix);
     }
 private:
     int lenght;
     char obj;
     char line;
-    vector<vector<int>> matrix;
     int variant;
-    void set_lenght()
+    void set_lenght(vector<vector<int>> matrix)
     {
         cout << "Enter lenght : ";  cin >> lenght;
         while (lenght <= 0)
@@ -38,31 +36,31 @@ private:
         cout << "Object character : "; cin >> obj;
         system("cls");
     }
-    void actions()
+    void actions(vector<vector<int>> matrix)
     {
         while (variant != 5)
         {
-            print();
+            print(matrix);
             cout << "Choose action : "; cin >> variant;
             switch (variant) 
             {
             case 1:
-                draw();
+                draw(matrix);
                 break;
             case 2:
-                diagonal();
+                diagonal(matrix);
                 break;
             case 3:
-                fill();
+                fill(matrix);
                 break;
             case 4:
-                clear();
+                clear(matrix);
                 break;
             }
         }
         system("cls");
     }
-    void print()
+    void print(vector<vector<int>> matrix)
     {
         system("cls");
         for (int i = 0; i < lenght; i++)
@@ -92,7 +90,7 @@ private:
         cout << "  4) clear all" << endl;
         cout << "  5) delete all and exit" << endl;
     }
-    void draw()
+    void draw(vector<vector<int>> matrix)
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -106,7 +104,7 @@ private:
         }
         cout << endl;
     }
-    void fill()
+    void fill(vector<vector<int>> matrix)
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -117,7 +115,7 @@ private:
         }
         cout << endl;
     }
-    void diagonal()
+    void diagonal(vector<vector<int>> matrix)
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -131,7 +129,7 @@ private:
         }
         cout << endl;
     }
-    void clear()
+    void clear(vector<vector<int>> matrix)
     {
         for (int i = 0; i < lenght; i++)
         {
