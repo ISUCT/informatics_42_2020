@@ -7,19 +7,19 @@ using namespace std;
 class Interface
 {
 public: 
-    Interface(vector<vector<int>> matrix)
+    Interface(vector<vector<int>> square)
     {
-        set_lenght(matrix);
-        set_obj_line();
-        clear(matrix);
-        actions(matrix);
+        this->matrix = square;
+        create_matrix();
+        actions();
     }
 private:
+    vector<vector<int>> matrix;
     int lenght;
     char obj;
     char line;
     int variant;
-    void set_lenght(vector<vector<int>> matrix)
+    void get_lenght()
     {
         cout << "Enter lenght : ";  cin >> lenght;
         while (lenght <= 0)
@@ -28,39 +28,44 @@ private:
             cout << "Enter correct lenght : "; cin >> lenght;
         }
         system("cls");
-        matrix.resize(lenght, vector<int>(lenght));
     }
-    void set_obj_line()
+    void get_character()
     {
+        system("cls");
         cout << "Line character : "; cin >> line;
         cout << "Object character : "; cin >> obj;
         system("cls");
     }
-    void actions(vector<vector<int>> matrix)
+    void actions()
     {
-        while (variant != 5)
+        while (variant != 6)
         {
-            print(matrix);
+            print_square();
+            print_actions();
             cout << "Choose action : "; cin >> variant;
-            switch (variant) 
+            switch (variant)
             {
             case 1:
-                draw(matrix);
+                presets();
                 break;
             case 2:
-                diagonal(matrix);
+                lines();
                 break;
             case 3:
-                fill(matrix);
+                fill();
                 break;
             case 4:
-                clear(matrix);
+                clear();
+                break;
+            case 5:
+                changes();
                 break;
             }
         }
         system("cls");
     }
-    void print(vector<vector<int>> matrix)
+
+    void print_square()
     {
         system("cls");
         for (int i = 0; i < lenght; i++)
@@ -82,29 +87,55 @@ private:
             }
             cout << endl;
         }
+    }
+    void print_actions()
+    {
+        cout << endl;
+        cout << "You can : " << endl;
+        cout << "  1) draw presets..." << endl;
+        cout << "  2) draw lines..." << endl;
+        cout << "  3) fill box" << endl;
+        cout << "  4) clear all" << endl;
+        cout << "  5) change size or character..." << endl;
+        cout << "  6) delete all and exit" << endl;
+    }
+    void print_lines()
+    {
+        cout << endl;
+        cout << "You can : " << endl;
+        cout << "  1) left line" << endl;
+        cout << "  2) right line" << endl;
+        cout << "  3) up line" << endl;
+        cout << "  4) down line" << endl;
+        cout << "  5) back" << endl;
+
+    }
+    void print_changes()
+    {
+        cout << endl;
+        cout << "You can : " << endl;
+        cout << "  1) change size" << endl;
+        cout << "  2) change character" << endl;
+        cout << "  3) back" << endl;
+    }
+    void print_presets()
+    {
         cout << endl;
         cout << "You can : " << endl;
         cout << "  1) draw box" << endl;
-        cout << "  2) draw diagonal" << endl;
-        cout << "  3) fill box" << endl;
-        cout << "  4) clear all" << endl;
-        cout << "  5) delete all and exit" << endl;
+        cout << "  2) draw diogonal" << endl;
+        cout << "  3) back" << endl;
     }
-    void draw(vector<vector<int>> matrix)
+
+    void draw_square()
     {
-        for (int i = 0; i < lenght; i++)
-        {
-            for (int j = 0; j < lenght; j++)
-            {
-                if ((i == 0) || (i == (lenght - 1)) || (j == 0) || (j == (lenght - 1)))
-                {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
+        left_line();
+        right_line();
+        up_line();
+        down_line();
         cout << endl;
     }
-    void fill(vector<vector<int>> matrix)
+    void fill()
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -115,7 +146,7 @@ private:
         }
         cout << endl;
     }
-    void diagonal(vector<vector<int>> matrix)
+    void diagonal()
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -129,7 +160,7 @@ private:
         }
         cout << endl;
     }
-    void clear(vector<vector<int>> matrix)
+    void clear()
     {
         for (int i = 0; i < lenght; i++)
         {
@@ -140,19 +171,152 @@ private:
         }
         cout << endl;
     }
+
+    void left_line()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if (j == 0)
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+    void right_line()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if (j == (lenght - 1))
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+    void up_line()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if (i == 0)
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+    void down_line()
+    {
+        for (int i = 0; i < lenght; i++)
+        {
+            for (int j = 0; j < lenght; j++)
+            {
+                if (i == (lenght - 1))
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    void presets()
+    {
+        system("cls");
+        print_square();
+        print_presets();
+        cout << "Choose type of presets : "; cin >> variant;
+        switch (variant)
+        {
+        case 1:
+            draw_square();
+            break;
+        case 2:
+            diagonal();
+            break;
+        case 3:
+            actions();
+            break;
+        }
+    }
+    void lines()
+    {
+        system("cls");
+        print_square();
+        print_lines();
+        cout << "Choose type of line : "; cin >> variant;
+        switch (variant)
+        {
+        case 1:
+            left_line();
+            break;
+        case 2:
+            right_line();
+            break;
+        case 3:
+            up_line();
+            break;
+        case 4:
+            down_line();
+            break;
+        case 5:
+            actions();
+            break;
+        }
+    }
+    void changes()
+    {
+        system("cls");
+        print_square();
+        print_changes();
+        cout << "Choose type of changes : "; cin >> variant;
+        switch (variant)
+        {
+        case 1:
+            change_matrix();
+            break;
+        case 2:
+            get_character();
+            break;
+        case 3:
+            actions();
+            break;
+        }
+    }
+
+    void change_matrix()
+    {
+        system("cls");
+        get_lenght();
+        matrix.clear();
+        matrix.resize(lenght, vector<int>(lenght));
+        clear();
+    }
+    void create_matrix()
+    {
+        get_lenght();
+        get_character();
+        matrix.resize(lenght, vector<int>(lenght));
+        clear();
+    }
 };
 class Square
 {
 public:
-    vector<vector<int>> matrix;
+    vector<vector<int>> square;
     Square()
     {
-        matrix.resize(lenght, vector<int>(lenght));
+        square.resize(lenght, vector<int>(lenght));
     }
     ~Square() 
     {
         system("cls");
-        matrix.clear();
+        square.clear();
     } 
 private:
     int lenght = 0;
