@@ -36,6 +36,7 @@ private:
         cout << "Object character : "; cin >> obj;
         system("cls");
     }
+
     void actions()
     {
         while (variant != 6)
@@ -46,19 +47,19 @@ private:
             switch (variant)
             {
             case 1:
-                presets();
+                changes();
                 break;
             case 2:
-                lines();
+                presets();
                 break;
             case 3:
-                fill();
+                lines();
                 break;
             case 4:
-                clear();
+                fill();
                 break;
             case 5:
-                changes();
+                clear();
                 break;
             }
         }
@@ -92,39 +93,49 @@ private:
     {
         cout << endl;
         cout << "You can : " << endl;
-        cout << "  1) draw presets..." << endl;
-        cout << "  2) draw lines..." << endl;
-        cout << "  3) fill box" << endl;
-        cout << "  4) clear all" << endl;
-        cout << "  5) change size or character..." << endl;
+        cout << "  1) change size or character" << endl;
+        cout << "  2) draw presets" << endl;
+        cout << "  3) draw lines" << endl;
+        cout << "  4) fill box" << endl;
+        cout << "  5) clear all" << endl;
         cout << "  6) delete all and exit" << endl;
+        cout << endl;
     }
     void print_lines()
     {
         cout << endl;
         cout << "You can : " << endl;
-        cout << "  1) left line" << endl;
-        cout << "  2) right line" << endl;
-        cout << "  3) up line" << endl;
-        cout << "  4) down line" << endl;
-        cout << "  5) back" << endl;
-
+        cout << "  1) change size or character" << endl;
+        cout << "  2) draw presets" << endl;
+        cout << "  3) draw lines ->" << "  1) left line" <<"  2) right line" <<"  3) up line" <<"  4) down line" <<"  5) back" << endl;
+        cout << "  4) fill box" << endl;
+        cout << "  5) clear all" << endl;
+        cout << "  6) delete all and exit" << endl;
+        cout << endl;
     }
     void print_changes()
     {
         cout << endl;
         cout << "You can : " << endl;
-        cout << "  1) change size" << endl;
-        cout << "  2) change character" << endl;
-        cout << "  3) back" << endl;
+        cout << "  1) change size or character ->" << "  1) change size" << "  2) change character" << "  3) back" << endl;
+        cout << "  2) draw presets" << endl;
+        cout << "  3) draw lines" << endl;
+        cout << "  4) fill box" << endl;
+        cout << "  5) clear all" << endl;
+        cout << "  6) delete all and exit" << endl;
+        cout <<  endl;
     }
     void print_presets()
     {
         cout << endl;
         cout << "You can : " << endl;
-        cout << "  1) draw box" << endl;
-        cout << "  2) draw diogonal" << endl;
-        cout << "  3) back" << endl;
+        cout << "  1) change size or character" << endl;
+        cout << "  2) draw presets ->" << "  1) draw box" << "  2) draw diogonal 1" << "  3) back" << endl;
+        cout << "  3) draw lines" << endl;
+        cout << "  4) fill box" << endl;
+        cout << "  5) clear all" << endl;
+        cout << "  6) delete all and exit" << endl;
+        cout << endl;
     }
 
     void draw_square()
