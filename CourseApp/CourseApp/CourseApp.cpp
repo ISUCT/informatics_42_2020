@@ -1,35 +1,51 @@
-
-
-
 #include <iostream>
-#include "Calc.h"
 using namespace std;
+
+class Square
+{
+private:
+	int SizeOfSquare;
+public:
+
+	Square()
+	{
+		if (SizeOfSquare > 0 && SizeOfSquare <= 50)
+		{
+			this->SizeOfSquare = SizeOfSquare;
+		}
+	}
+
+	void Input() // ввод размера квадрата
+	{
+		cout << "Now you must enter the size of the square." << endl;
+		cout << "Input Size of Square:"; cin >> SizeOfSquare; cout << endl;
+	}
+
+	void Draw() // вывод квадрата на экран
+	{
+		for (int i = 1; i <= SizeOfSquare; i++)
+		{
+			for (int j = 1; j <= SizeOfSquare; j++)
+			{
+				if (i == j || i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare)
+					cout << "*";
+				else cout << " ";
+			}
+			cout << endl;
+		}
+	}
+
+	~Square()
+	{
+	}
+};
 
 int main()
 {
-
-	const double a = 1.2;
-	const double b = 0.48;
-	double* y;
-
-	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
-	for (int i = 0; i < h; i++)
-	{
-		cout << y[i] << endl;
-	}
-	delete[] y;
-
-	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
-	cout << "_______________________" << endl;
-
-	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
-
-	for (int i = 0; i < h; i++)
-	{
-		cout << x[i] << "\t" << y[i] << endl;
-	}
+	Square SquareOne;
+	SquareOne.Input();
+	SquareOne.Draw();
 	return 0;
-
 }
 
 
