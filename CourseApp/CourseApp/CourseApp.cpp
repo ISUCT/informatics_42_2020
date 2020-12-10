@@ -1,30 +1,106 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <cmath>
+#include "Calc.h"
+#include <cstdlib>
 using namespace std;
+class Square {
+private:
+    int size = 0;
+    char** array;
+    int offsetX = 0;
+    int offsetY = 0;
+
+public:
+    Square(int s) {
+        size = s;
+        array = new char* [size];
+    }
+    void init(char n)
+    {
+        for (int i = 0; i < size; i++) {
+            array[i] = new char[size];
+            for (int j = 0; j < size; j++) {
+                if (i == 0 or j == 0)
+                {
+                    array[i][j] = n;
+                }
+                else if (i == size - 1 || j == size - 1)
+                {
+                    array[i][j] = n;
+                }
+                else
+                {
+                    array[i][j] = ' ';
+                };
+            };
+        };
+    };
+    void setDiagonal(bool x) {
+        if (x==1) 
+        {
+            for (int i = 0; i < size; i++)
+                array[i][i] = array[0][0];
+        }
+    }
+
+    void print() {
+        for (int i = 0; i < size + offsetY; i++) {
+            for (int j = 0; j < size + offsetX; j++) {
+                if (i - offsetY < 0 or j - offsetX < 0)
+                {
+                    cout << "  ";
+                }
+                else
+                {
+                    cout << array[i - offsetY][j - offsetX] << ' ';
+                }
+            }
+            cout << '\n';
+        };
+    };
+
+    void setOffset(int x, int y) {
+        offsetX = x;
+        offsetY = y;
+    }
+};
+
 int main()
 {
-	const double a = 0.8;
-	const double b = 0.4;
-	for (double x = 1.23; x <= 7.23; x += 1.2) {
-		double numenator = pow(pow(x - a, 2), 1 / 3.0) + pow(abs(x + b), 1 / 5.0);
-		double denominator = pow(pow(x, 2) - pow(a - b, 2), 1 / 9.0);
-		double y = numenator / denominator;
-		cout << "x= "<< x <<  " y= " << y << endl;
-	}
+    Square newSquare(10);
 
+    bool f;
+    cout << "Do you want to display the diagonal? " << endl;
+    cin >> f;
+    newSquare.init('#');
+    newSquare.setDiagonal(f);
+    newSquare.setOffset(5, 10);
+    newSquare.print();
+    
+
+    int SizeA = 0;
+    int SizeB = 0;
+
+    double x[] = { 1.88 ,2.26 ,3.84 ,4.55 ,-6.21 };
+
+    const double a = 0.8;
+    const double b = 0.4;
+
+    SizeA = init(1.23, 7.23, 1.2, SizeA) * 2;
+    double* ArrayA = new double[SizeA];
+
+    SizeB = ((sizeof(x) / sizeof(x[0])) * 2);
+    double* ArrayB = new double[SizeB];
+
+    ScoreTaskA(a, b, 1.23, 7.23, 1.2, ArrayA);
+    outputA(SizeA,ArrayA);
+
+    ScoreTaskB(a, b, x, SizeB, ArrayB);
+    outputB(SizeB,ArrayB);
+
+    delete[] ArrayA;
+    delete[] ArrayB;
+    return 0;
 }
 
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
