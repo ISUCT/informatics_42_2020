@@ -36,7 +36,7 @@ public:
         };
     };
     void setDiagonal(bool x) {
-        if (x) 
+        if (x==1) 
         {
             for (int i = 0; i < size; i++)
                 array[i][i] = array[0][0];
