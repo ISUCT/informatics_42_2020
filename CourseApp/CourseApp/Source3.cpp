@@ -6,23 +6,29 @@ private:
     int size;
     char** array;
     bool d;
-    int x = 0, y = 0;
-
+    int x = 0; 
+    int y = 0;
+    array = new char* [size];
 public:
     Square(int s, bool d)
     {
-        size = s;
+        int g;
 
-        cin >> size;
+       
+        
+            size = s;
+            if (size > 0) {
+                size = s;
 
-        array = new char* [size];
-        for (int i = 0; i < size; i++) {
-            array[i] = new char[size];
-            for (int j = 0; j < size; j++) {
-                array[i][j] = '*';
-
+                cin >> size;
+                for (int i = 0; i < size; i++) {
+                    array[i] = new char[size];
+                    for (int j = 0; j < size; j++) {
+                        array[i][j] = g;
+                    }
+                };
             };
-        };
+            else std::cout << "Eror";
     }
     void drawDiagonal() {
         if (d == 1)
@@ -64,9 +70,9 @@ public:
 };
 
 int main()
-{ 
+{
     cout << "Do you wanna draw a diagonal ?" << "\nAnswer '1'- Draw a diagonal" << "\nAnswer '0'- Don't draw a diagonal" << endl;
-    cout << "and enter size of square" << endl;
+    cout << "And enter size of square" << endl;
     Square newSquare(15, '$');
     newSquare.set(15, 7);
     newSquare.drawDiagonal();
