@@ -2,7 +2,9 @@
 #include <cmath>
 #include "Calk.h"
 #include <string>
-std::pair<int**, std::pair<int, int>> fill(int x, int y) {
+
+
+int** fill(int x, int y) {
 	int** m = new int* [x];
 	for (int i = 0; i < x; i++) {
 		m[i] = new int[y];
@@ -24,17 +26,19 @@ std::pair<int**, std::pair<int, int>> fill(int x, int y) {
 		} std::cout << std::endl;
 	}
 	int**& mRef = m;
-	return std::make_pair(mRef, std::make_pair(x, y));
+	return mRef;
 }
+
+
 void draw(int** m, int x, int y,std::string s) {
 	std::cout << "Your figur:" << std::endl;
 	for (int i = 0; i < x; i++) {
 		for (int j = 0; j < y; j++) {
 			if (m[i][j] == 1) {
-				std::cout << s << " ";
+				std::cout << s << "";
 			}
 			else {
-				std::cout << "  ";
+				std::cout << " ";
 			}
 		}std::cout << std::endl;
 	}
