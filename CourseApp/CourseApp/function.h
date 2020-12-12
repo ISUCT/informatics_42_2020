@@ -16,8 +16,7 @@ public:
     }
     ~Function()
     {
-        char end;
-        cin >> end;
+
     }
 private:
     const double a = 2.0;

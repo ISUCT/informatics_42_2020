@@ -5,12 +5,18 @@
 #include <vector>
 using namespace std;
 
+void doc_creator();
+
 class Document
 {
 public:
 	Document()
 	{
 		set_information();
+	}
+	~Document()
+	{
+
 	}
 	void get_information()
 	{
@@ -25,10 +31,12 @@ private:
 	void set_information()
 	{
 		cout << "Enter name of doc : "; cin >> doc_name;
+		cout << endl;
 		type();
 		weight();
 		system("cls");
 	}
+
 	void type()
 	{
 		print_type();
@@ -54,6 +62,7 @@ private:
 			doc_type = ".xls";
 			break;
 		}
+		cout << endl;
 	}
 	void print_type()
 	{
@@ -66,11 +75,14 @@ private:
 		cout << "  6) Table (xls)" << endl;
 		cout << endl;
 	}
+
 	void weight()
 	{
-		cout << "Enter weight of doc : "; cin >> doc_weight;
+		set_correct_weight();
+		cout << endl;
 		character();
 	}
+
 	void character()
 	{
 		print_character();
@@ -96,11 +108,21 @@ private:
 	}
 	void print_character()
 	{
+		cout << "Character of doument weight : " << endl;
 		cout << "  1) Byte (B)" << endl;
 		cout << "  2) Kilobyte (KB)" << endl;
 		cout << "  3) Megabyte (MB)" << endl;
 		cout << "  4) Gigabyte (GB)" << endl;
 		cout << "  5) Terabyte (TB)" << endl;
 		cout << endl;
+	}
+
+	void set_correct_weight()
+	{
+		cout << "Enter weight of doc : "; cin >> doc_weight;
+		while (doc_weight <= 0)
+		{
+			cout << "Enter correct weight : "; cin >> doc_weight;
+		}
 	}
 };

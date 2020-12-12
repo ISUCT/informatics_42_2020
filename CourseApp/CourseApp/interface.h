@@ -17,14 +17,12 @@ public:
 	}
 	~User_interface()
 	{
-		char end;
-		cin >> end;
+
 	}
 private:
 	int variant;
 	char obj_1 = '#';
 	char obj_2 = '>';
-
 
 	void enter_size()
 	{
