@@ -154,6 +154,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="document.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="square.h" />
