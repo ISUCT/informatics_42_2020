@@ -1,61 +1,32 @@
 #include <iostream>
-#include <cstring>
-using namespace std;
+#include "Calc.h"
 
-class Square
-{
-private:
-	int Compare = 0;
-	int SizeOfSquare = 0;
-	string Symbol;
-public:
-
-	Square(int SizeOfSquare)
-	{
-		this->SizeOfSquare = SizeOfSquare;
-		this->Symbol = Symbol;
-	}
-	
-	void Draw(string Symbol, int compare)
-	{
-		Compare = compare;
-	
-			for (int i = 1; i <= SizeOfSquare; i++)
-			{
-				for (int j = 1; j <= SizeOfSquare; j++)
-				{
-					if ( i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
-						cout << Symbol;
-					}
-					else if (Compare == 2 && i==j){
-						cout << Symbol;
-					}
-					else {
-						cout << " ";
-					}
-				}
-				cout << endl;
-			}
-		
-
-
-	}
-
-	~Square()
-	{
-	}
-};
-
+using namespace std;	
 int main()
 {
-	int compare = 1;
-	Square SquareOne(10);
-	cout << "Do you want to draw a diagonal? " << endl << "1 - No" << endl << "2 - Yes" << endl;
-	cin >> compare;
-	SquareOne.Draw("#", compare);
 
-	cout << endl;
+	const double a = 1.2;
+	const double b = 0.48;
+	double* y;
+
+	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
+	for (int i = 0; i < h; i++)
+	{
+		cout << y[i] << endl;
+	}
+	delete[] y;
+
+	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
+	cout << "_______________________" << endl;
+
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
+
+	for (int i = 0; i < h; i++)
+	{
+		cout << x[i] << "\t" << y[i] << endl;
+	}
 	return 0;
+
 }
 
 
