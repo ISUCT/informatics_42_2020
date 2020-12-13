@@ -54,9 +54,7 @@ private:
     string nationality;
     string CountryOfResidence;
     string name;
-    int height;
     int age;
-    string health;
 };
 int main()
 {
