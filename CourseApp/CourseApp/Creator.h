@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cctype> 
+#include <ctype.h>
 using namespace std;
 
 void Mouse_Quantity(); //method definition for main
@@ -14,14 +16,14 @@ public:
 	{
 		this->MouseAge = MouseAge;
 		this->MouseName = MouseName;
-		this->MouseBloom = MouseBloom;
+		this->MouseColor = MouseColor;
 		this->MouseBreed = MouseBreed;
 
-		this->Bloom = Bloom;
+		this->Color = Color;
 		this->Age = Age;
 		this->Name = Name;
 
-		set_inf();
+		set_info();
 	}
 
 	string getName()
@@ -29,9 +31,9 @@ public:
 		return MouseName;
 	}
 
-	string getBloom()
+	string getColor()
 	{
-		return MouseBloom;
+		return MouseColor;
 	}
 
 	double getAge()
@@ -44,9 +46,9 @@ public:
 		return MouseBreed;
 	}
 
-	void get_inf()
+	void get_info()
 	{
-		cout << "Bloom - " << MouseBloom << endl;
+		cout << "Color - " << MouseColor << endl;
 		cout << "Age - " << MouseAge << "years" << endl;
 		cout << "Name - " << MouseName << endl;
 		Mouse_Breed();
@@ -58,18 +60,18 @@ private:
 
 	double MouseAge;
 	string MouseName;
-	string MouseBloom;
+	string MouseColor;
 	string MouseBreed;
 
-	string Bloom;
+	string Color;
 	double Age;
 	string Name;
 
-	void set_inf()
+	void set_info()
 	{
 		cout << "Enter mouse Bloom " << endl;
-		Mouse_Bloom();
-		SetBloom();
+		Mouse_Color();
+		SetColor();
 
 		cout << "Enter mouse Age" << endl;
 		Mouse_Age();
@@ -82,15 +84,20 @@ private:
 		system("cls");
 	}
 
-	void Mouse_Bloom()
+	void Mouse_Color()
 	{
-		cout << "Bloom:" << "\t";
-		cin >> Bloom;
+		cout << "Color:" << "\t";
+		cin >> Color;
 	}
 
-	void SetBloom()
+	void SetColor()
 	{
-		MouseBloom = Bloom;
+		for (auto& MouseColor : Color)
+		{
+			MouseColor = tolower(MouseColor);
+
+		}
+		MouseColor = Color;
 	}
 
 	void Mouse_Age()
@@ -130,21 +137,30 @@ private:
 	
 	void Mouse_Breed()
 	{
-			if (MouseBloom == "black" || MouseBloom == "Black" || MouseBloom == "brown" || MouseBloom == "Brown")
+		if ( MouseColor == "black" || MouseColor == "brown")
+		{
+			MouseColor = "House mouse";
+			cout << "Breed - " << MouseColor << endl;
+		}
+		else if (MouseColor == "yellow" || MouseColor == "golden" || MouseColor == "orange")
+		{
+			MouseColor = "Harvest mouse";
+			cout << "Breed - " << MouseColor << endl;
+		}
+		else if (MouseColor == "white" || MouseColor == "grey")
+		{
+			MouseColor = "mouse-baby";
+			cout << "Breed -  " << MouseColor << endl;
+		}
+		else {
+			try
 			{
-				MouseBreed = "House mouse";
-				cout << "Breed - " << MouseBreed << endl;
+				throw 404;
 			}
-			else if (MouseBloom == "yellow" || MouseBloom == "Yellow" || MouseBloom == "golden" || MouseBloom == "Golden" || MouseBloom == "orange" || MouseBloom == "Orange")
+			catch (int i)
 			{
-				MouseBreed = "Harvest mouse";
-				cout << "Breed - " << MouseBreed << endl;
+				cout << "Error " << i << " - breed is't found :)" << endl;
 			}
-			else if (MouseBloom == "white" || MouseBloom == "White")
-			{
-				MouseBreed = "mouse-baby";
-				cout << "Breed -  " << MouseBreed << endl;
-			}
-			else { cout << "Error 404  breed is't found :) " << endl; };
+		};
 	}
 };
