@@ -30,8 +30,13 @@ public:
     {
         this->health = health;
     }
+    string getHealthInfo()
+    {
+        return health;
+    }
     void DisplayInfo()
     {
+        cout << "There is your personal information" << endl;
         cout << "Name: " << name << "\n" << "Age: " << age << "\n" << "Gender: " << gender << endl;
         if(nationality != "")
         {
@@ -40,10 +45,6 @@ public:
         if(CountryOfResidence != "")
         {
             cout << "Country: " << CountryOfResidence << endl;
-        }
-        if(health != "")
-        {
-            cout << "Your health`s condition is " << health << endl;
         }
     }
 
@@ -58,8 +59,13 @@ private:
 
 int main()
 {
-    string name,gender,nationality,CountryOfResidence,health;
-    int age,choose;
+    string name;
+    string gender;
+    string nationality;
+    string CountryOfResidence;
+    string health;
+    int age;
+    int choose;
     cout << "What is the type of the information you want to enter? (1 - Full, 0 - Main)" << endl;
     cin >> choose;
     Person *person;
@@ -77,6 +83,8 @@ int main()
         cin >> name >> age >> gender;
         person = new Person(name,age,gender);
     }
+    system("cls");
+    person->DisplayInfo();
     cout << "Do you want to share information about your health?" << endl;
     cin >> choose;
     if(choose == 1)
@@ -84,8 +92,9 @@ int main()
         cout << "Write your general condition." << endl;
         cin >> health;
         person->setHealthInfo(health);
+        cout << "Your health`s condition is " << health << endl;
     }
-    person->DisplayInfo();
+    system("pause");
     delete person;
     return 0;
 }
