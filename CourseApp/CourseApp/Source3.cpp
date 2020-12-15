@@ -8,17 +8,20 @@ private:
     bool d;
     int x = 0; 
     int y = 0;
-    array = new char* [size];
+    int height;
+    int weight;
+   
 public:
     Square(int s, bool d)
     {
+        array = new char* [size];
         int g;
-
-       
-        
+        int w;
+        int h;       
             size = s;
             if (size > 0) {
-                size = s;
+                height = h;
+                weight = w;
 
                 cin >> size;
                 for (int i = 0; i < size; i++) {
@@ -74,7 +77,7 @@ int main()
     cout << "Do you wanna draw a diagonal ?" << "\nAnswer '1'- Draw a diagonal" << "\nAnswer '0'- Don't draw a diagonal" << endl;
     cout << "And enter size of square" << endl;
     Square newSquare(15, '$');
-    newSquare.set(15, 7);
+    newSquare.set(10, 10);
     newSquare.drawDiagonal();
     newSquare.nodrawDiagonal();
     return 0;
