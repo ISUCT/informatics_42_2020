@@ -1,14 +1,38 @@
 #include <iostream>
 #include "Calk.h"
 
+class dog{
+public:
+	int age;
+	int b;
+	int data;
+	dog(int a, int d, int c) {
+		age = a;
+		b = d;
+		data = c;
+	}
+	dog(int a) :dog(a, 1970, 2002) {}
+	void Born() {
+		std::cout << b << std::endl;
+	}
+	void T_day() {
+		std::cout << data << std::endl;
+	}
+	int Data() {
+		return age + b;
+	}
+};
+
 int main()
 {
+	dog p1(20, 1920, 1940);
+	dog p2(32);
 	int** g;
 	int x = 0;
 	int	y = 0;
 	std::cin >> x >> y;
 	g = fill(x, y);
-	std::string s = "#";
+	std::string s = "O";
 	draw(g, x, y, s);
 
 	double a = 2.0;
