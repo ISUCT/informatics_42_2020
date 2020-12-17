@@ -2,71 +2,75 @@
 //
 #include <iostream>
 using namespace std;
-class Square
-{
+class Square {
 private:
     int size = 0;
     char** array;
-    int movingX = 0;
-    int movingY = 0;
+    int MovingX = 0;
+    int MovingY = 0;
+ 
 public:
-    Square(int a, char b)
-    {
+    Square(int a, char b) {
         size = a;
         array = new char* [size];
-
+ 
         for (int i = 0; i < size; i++) {
             array[i] = new char[size];
             for (int j = 0; j < size; j++) {
-                array[i][j] = b;
+                if (i == 0 or j == 0) {
+                    array[i][j] = n;
+                }
+                else if (i == size - 1 or j == size - 1) {
+                    array[i][j] = n;
+                }
+                else {
+                    array[i][j] = ' ';
+                };
             };
         };
     }
-    void printWithmoving() {
-        for (int i = 0; i < size + movingY; i++) {
-            for (int j = 0; j < size + movingX; j++) {
-                if (i < movingY or j < movingX) {
-                    cout << ' ' << ' ';
-                }
-                else {
-                    if (j - movingX == i - movingY)
-                        cout << array[i - movingY][j - movingX] << ' ';
-                    else cout << "  ";
-                }
-            };
-            cout << '\b';
-        };
-    };
-    void printWithmovingDiag() {
-        for (int i = 0; i < size + movingY; i++) {
-            for (int j = 0; j < size + movingX; j++) {
-                if (i < movingY or j < movingX) {
-                    cout << ' ' << ' ';
-                }
-                else {
-                    if (i == movingY || i == size + movingY - 1 || j == movingX || j == size + movingX - 1)
-                        cout << array[i - movingY][j - movingX] << ' ';
-                    else cout << "  ";
-                }
-            };
-            cout << '\b';
-        };
-    };
-    void move(int x, int y) {
-        movingX = --x;
-        movingY = --y;
+    void enterDiagonal(bool flag) {
+        if (flag==1)
+            for (int i = 0; i < size; i++)
+                array[i][i] = array[0][0];
     }
-
+ 
+    void print() {
+        for (int i = 0; i < size + MovingY; i++) {
+            for (int j = 0; j < size + MovingX; j++) {
+                if (i - MovingY < 0 or j - MovingX < 0)
+                    cout << "  ";
+                else
+                    cout << array[i - MovingY][j - MovingX] << ' ';
+            }
+            cout << endl;
+        };
+    };
+ 
+    void Move(int x, int y) {
+        MovingX = x;
+        MovingY = y;
+    }
 };
-
+ 
 int main()
 {
-    bool c;
-    cout << " Вывести диагональ? " << endl;
-    cin >> c;
-    Square newSquare(7, '$');
-    newSquare.move(5, 3);
-    newSquare.printWithmovingDiag();
-    if (c == 1) newSquare.printWithmoving();
+    int a;
+    cout << "Введите размер площади - " ; 
+    cin >> a;
+    Square newSquare(a, '@');
+ 
+    bool k;
+    cout << "Вывести диагональ? " << endl;
+    cin >> k;
+    newSquare.EnterDiagonal(k);
+ 
+    int x = 0;
+    int y = 0;
+    cout << "Введите отступ от начала координат : "; 
+    cin >> x >> y;
+    newSquare.Moving(x, y);
+ 
+    newSquare.print();
     return 0;
 }
