@@ -12,7 +12,7 @@ int main()
     cout << "-----------" << endl;
     double xs[5] = {1.28, 1.36, 2.47, 3.68, 4.56};
     int size2 = sizeof(xs)/sizeof(xs[0]);
-    taskB(1.6,xs,size2,arr);
+    taskB(1.6,xs,s2ze2,arr);
     ConsoleOut(size2,arr);
     delete[] arr;
     return 0;

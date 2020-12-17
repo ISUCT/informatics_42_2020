@@ -43,7 +43,7 @@ public:
             }
         }
     }
-    void SquareWithOutDiag()
+    void DrawSquare()
     {
         for (int i = 0; i < SquareSide; i++)
         {
@@ -81,7 +81,7 @@ int main()
     int diagonal;
     cout << "Do you want to have a diagonal? (0 - No, 1 - Yes)" << endl;
     cin >> diagonal;
-    firstSquare.SquareWithOutDiag();
+    firstSquare.DrawSquare();
     switch (diagonal)
     {
         case 0:
@@ -101,5 +101,7 @@ int main()
             break;;
         }
     }
+    int b;
+    cin >> b;
     return 0;
 }
