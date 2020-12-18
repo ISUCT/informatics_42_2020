@@ -6,27 +6,27 @@ public:
 	int age;
 	int b;
 	int data;
-	dog(int a, int d, int c) {
-		age = a;
+	dog(int d, int c) {
+		age = Age();
 		b = d;
 		data = c;
 	}
-	dog(int a) :dog(a, 1970, 2002) {}
+	dog(int a) :dog(b, 2020) {}
 	void Born() {
 		std::cout << b << std::endl;
 	}
 	void T_day() {
 		std::cout << data << std::endl;
 	}
-	int Data() {
-		return age + b;
+	int Age() {
+		return data - b;
 	}
 };
 
 int main()
 {
-	dog p1(20, 1920, 1940);
-	dog p2(32);
+	dog p1(1920, 2020);
+	dog p2(2016);
 	int** g;
 	int x = 0;
 	int	y = 0;
