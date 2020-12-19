@@ -1,4 +1,3 @@
-//
 //#include <iostream>
 //#include "Calc.h"
 //using namespace std;
@@ -53,60 +52,134 @@
 //	}
 //	return 0;
 // }
+//#include <iostream>
+//#include <cstring>
+//using namespace std;	
+
+//class Square
+//{
+//private:
+//	int Compare = 0;
+//	int SizeOfSquare = 0;
+//	string Symbol;
+//public:
+//
+//	Square(int SizeOfSquare)
+//	{
+//		this->SizeOfSquare = SizeOfSquare;
+//		this->Symbol = Symbol;
+//	}
+//
+//	void Draw(string Symbol, int compare)
+//	{
+//		Compare = compare;
+//
+//		for (int i = 1; i <= SizeOfSquare;  i++)
+//		{
+//			for (int j = 1; j <= SizeOfSquare; j++)
+//			{
+//				if (i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
+//					cout << Symbol;
+//				}
+//				else if (Compare == 2 && i == j) {
+//					cout << Symbol;
+//				}
+//				else {
+//					cout << " ";
+//				}
+//			}
+//			cout << endl;
+//		}
+//	}
+//
+//	~Square()
+//	{
+//	}
+//};
+//
+//int main()
+//{
+//	int compare = 1;
+//			Square SquareOne(10);
+//			cout << "Do you want to draw a diagonal? " << endl << "1 - No" << endl << "2 - Yes" << endl;
+//			cin >> compare;
+//		SquareOne.Draw("#", compare);
+//
+//		
+//			cout << endl;
+//			return 0;
+//			}
+
 #include <iostream>
 #include <cstring>
-using namespace std;	
+using namespace std;
 
-class Square
+class Fox
 {
 private:
-	int Compare = 0;
-	int SizeOfSquare = 0;
-	string Symbol;
+    string name;
+    int weight;
+    int age;
+    string From; // откуда пришла Лиса
 public:
+    Fox()
+    {
+        this->name = name;
+        this->From = From;
+    }
 
-	Square(int SizeOfSquare)
-	{
-		this->SizeOfSquare = SizeOfSquare;
-		this->Symbol = Symbol;
-	}
+    void GetView()
+    {
+        string view = R""""(
+                                                                     ,-,
+                                                             _.-=;~ /_
+                                                          _-~   '     ;.
+                                                      _.-~     '   .-~-~`-._
+                                                _.--~~:.             --.____88
+                              ____.........--~~~. .' .  .        _..-------~~
+                     _..--~~~~               .' .'             ,'
+                 _.-~                        .       .     ` ,'
+               .'                                    :.    ./
+             .:     ,/          `                   ::.   ,'
+           .:'     ,(            ;.                ::. ,-'
+          .'     ./'.`.     . . /:::._______.... _/:.|/
+         /     ./'. . .)  . _.,'               `||;?|||
+       ,'  . .,/'._,-~ /_.|||'                  ||| ?||
+    _,'' . .,/',-~    |||||'                    ||'  |||
+ _.'~  . .,:||'        ||||              _..--- ||o.--'||o.--..__
+:     ...' ||o __,------.|||o...__..._.=~- .    `~~   `~~      ~-._ -- _.
+`.;;;:='    ~~            ~~~                ~-    -       -   -
+)"""";
+        cout << view << endl;
+    }
 
-	void Draw(string Symbol, int compare)
-	{
-		Compare = compare;
+    void Input()
+    {
+        cout << "Name: "; cin >> name; cout << endl;
+        cout << "Age: "; cin >> age; cout << endl;
+        cout << "Weight: "; cin >> weight; cout << endl;
+        cout << "Where did the" << name << " come from? "; cin >> From;
+    }
 
-		for (int i = 1; i <= SizeOfSquare; i++)
-		{
-			for (int j = 1; j <= SizeOfSquare; j++)
-			{
-				if (i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
-					cout << Symbol;
-				}
-				else if (Compare == 2 && i == j) {
-					cout << Symbol;
-				}
-				else {
-					cout << " ";
-				}
-			}
-			cout << endl;
-		}
-	}
+    void Display()
+    {
+        cout << name << "-fox is moving." << "Age: " << age << endl << " Weight: " << weight << " " << name << "-fox come from " << From << endl;
+    }
 
-	~Square()
-	{
-	}
+    ~Fox() {}
 };
+
 
 int main()
 {
-	int compare = 1;
-			Square SquareOne(10);
-			cout << "Do you want to draw a diagonal? " << endl << "1 - No" << endl << "2 - Yes" << endl;
-			cin >> compare;
-		SquareOne.Draw("#", compare);
+    Fox fox_1;
+    Fox fox_2;
+    fox_1.GetView();
+    cout << endl << endl;
+    fox_1.Input();
+    fox_1.Display();
+    cout << endl;
+    fox_2.Input();
+    fox_2.Display();
 
-		
-			cout << endl;
-			return 0;
-			}
+}
