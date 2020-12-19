@@ -20,25 +20,26 @@ public:
 	void Draw(string Symbol, int compare)
 	{
 		Compare = compare;
-	
-			for (int i = 1; i <= SizeOfSquare; i++)
-			{
-				for (int j = 1; j <= SizeOfSquare; j++)
-				{
-					if ( i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
-						cout << Symbol;
-					}
-					else if (Compare == 2 && i==j){
-						cout << Symbol;
-					}
-					else {
-						cout << " ";
-					}
-				}
-				cout << endl;
-			}
-	}
 
+		for (int i = 1; i <= SizeOfSquare; i++)
+		{
+			for (int j = 1; j <= SizeOfSquare; j++)
+			{
+				if (i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
+					cout << Symbol;
+				}
+				else if (Compare == 2 && i == j) {
+					cout << Symbol;
+				}
+				else {
+					cout << " ";
+				}
+			}
+			cout << endl;
+		}
+
+	}
+	~Square(){}
 };
 
 int main()
