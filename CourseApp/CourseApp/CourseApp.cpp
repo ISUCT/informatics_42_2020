@@ -1,32 +1,44 @@
 #include <iostream>
 #include "Calk.h"
 
-class dog{
-public:
+class Dog{
+private:
 	int age;
-	int b;
+	int born;
 	int data;
-	dog(int d, int c) {
+public:
+	Dog(int d, int c) {
 		age = Age();
-		b = d;
+		born = d;
 		data = c;
 	}
-	dog(int a) :dog(b, 2020) {}
-	void Born() {
-		std::cout << b << std::endl;
+	Dog(int a) :Dog(born, 2020) {}
+
+	void set_born(int a) {
+		if (a > 0) {
+			born = a;
+		}
 	}
-	void T_day() {
-		std::cout << data << std::endl;
+	void set_data(int a) {
+		if (a > 0) {
+			data = a;
+		}
+	}
+	void set_age(int a) {
+		if (a > 0) {
+			age = a;
+		}
 	}
 	int Age() {
-		return data - b;
+		return data - born;
 	}
 };
 
 int main()
 {
-	dog p1(1920, 2020);
-	dog p2(2016);
+	Dog p1(1920, 2020);
+	Dog p2(2016);
+	p1.set_born(1940);
 	int** g;
 	int x = 0;
 	int	y = 0;
