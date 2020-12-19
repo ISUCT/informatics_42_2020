@@ -37,71 +37,120 @@
 
 
 
+//#include <iostream>
+//#include <cstring>
+//using namespace std;
+//
+//class Square
+//{
+//private:
+//	int Compare = 0;
+//	int SizeOfSquare = 0;
+//	string Symbol;
+//public:
+//
+//	Square(int SizeOfSquare)
+//	{
+//		this->SizeOfSquare = SizeOfSquare;
+//		this->Symbol = Symbol;
+//	}
+//
+//	void Draw(string Symbol, int compare)
+//	{
+//		Compare = compare;
+//
+//		for (int i = 1; i <= SizeOfSquare; i++)
+//		{
+//			for (int j = 1; j <= SizeOfSquare; j++)
+//			{
+//				if (i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
+//					cout << Symbol;
+//				}
+//				else if (Compare == 2 && i == j) {
+//					cout << Symbol;
+//				}
+//				else {
+//					cout << " ";
+//				}
+//			}
+//			cout << endl;
+//		}
+//
+//
+//
+//	}
+//
+//	~Square()
+//	{
+//	}
+//};
+//
+//int main()
+//{
+//	int compare = 1;
+//	Square SquareOne(10);
+//	cout << "Do you want to draw a diagonal? " << endl << "1 - No" << endl << "2 - Yes" << endl;
+//	cin >> compare;
+//	SquareOne.Draw("#", compare);
+//
+//	cout << endl;
+//	return 0;
+//}
+
+
+
+
+
 #include <iostream>
-#include <cstring>
+#include <string>
 using namespace std;
-
-class Square
+class EMPLOYEE
 {
-private:
-	int Compare = 0;
-	int SizeOfSquare = 0;
-	string Symbol;
 public:
-
-	Square(int SizeOfSquare)
+	string name;
+	string surname;
+	string patronymic;
+	int ident;
+	string data;
+	EMPLOYEE(string s, string n, string p, int a, string d)
 	{
-		this->SizeOfSquare = SizeOfSquare;
-		this->Symbol = Symbol;
+		surname = s; name = n; ident = a; data = d;   patronymic = p;
 	}
-
-	void Draw(string Symbol, int compare)
+	void display()
 	{
-		Compare = compare;
-
-		for (int i = 1; i <= SizeOfSquare; i++)
-		{
-			for (int j = 1; j <= SizeOfSquare; j++)
-			{
-				if (i == 1 || i == SizeOfSquare || j == 1 || j == SizeOfSquare) {
-					cout << Symbol;
-				}
-				else if (Compare == 2 && i == j) {
-					cout << Symbol;
-				}
-				else {
-					cout << " ";
-				}
-			}
-			cout << endl;
-		}
-
-
-
+		cout << "_____________________________" << endl;
+		cout << "FULL NAME:  " << surname << " ";
+		cout << name << " ";
+		cout << patronymic << endl;
+		cout << "IDENT " << ident << endl;
+		cout << "DATE: " << data << endl;
+		cout << "_____________________________" << endl;
+		cout << endl;
 	}
-
-	~Square()
-	{
-	}
+	~EMPLOYEE() {};
 };
-
 int main()
 {
-	int compare = 1;
-	Square SquareOne(10);
-	cout << "Do you want to draw a diagonal? " << endl << "1 - No" << endl << "2 - Yes" << endl;
-	cin >> compare;
-	SquareOne.Draw("#", compare);
-
-	cout << endl;
+	EMPLOYEE ONE = EMPLOYEE("LOPPY", "D.", "L.", 22, "08/09/15");
+	EMPLOYEE TWO = EMPLOYEE("HERRANY", "A.", "R.", 21, "18/10/14");
+	EMPLOYEE THREE = EMPLOYEE("MILAN", "S.", "J.", 19, "06/07/19");
+	EMPLOYEE FOUR = EMPLOYEE("POOL", "P.", "Q.", 41, "01/09/04");
+	EMPLOYEE FIVE = EMPLOYEE("POTO", "E.", "O.", 28, "03/11/14");
+	EMPLOYEE SIX = EMPLOYEE("OSSO", "O.", "L.", 32, "28/10/12");
+	EMPLOYEE SEVEN = EMPLOYEE("ALEXEEV", "I.", "A.", 23, "21/03/10");
+	EMPLOYEE EIGHT = EMPLOYEE("ROND", "T.", "E.", 24, "26/01/14");
+	EMPLOYEE NINE = EMPLOYEE("LU", "P.", "K.", 36, "01/10/10");
+	ONE.display();
+	TWO.display();
+	THREE.display();
+	FOUR.display();
+	FIVE.display();
+	SIX.display();
+	SEVEN.display();
+	EIGHT.display();
+	NINE.display();
 	return 0;
 }
-
-
-
-
-
-
 
 
 
