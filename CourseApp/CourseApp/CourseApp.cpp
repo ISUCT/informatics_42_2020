@@ -1,20 +1,63 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include "Calk.h"
+
+class Dog{
+private:
+	int age;
+	int born;
+	int data;
+public:
+	Dog(int d, int c) {
+		age = Age();
+		born = d;
+		data = c;
+	}
+	Dog(int a) :Dog(born, 2020) {}
+
+	void set_born(int a) {
+		if (a > 0) {
+			born = a;
+		}
+	}
+	void set_data(int a) {
+		if (a > 0) {
+			data = a;
+		}
+	}
+	void set_age(int a) {
+		if (a > 0) {
+			age = a;
+		}
+	}
+	int Age() {
+		return data - born;
+	}
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Dog p1(1920, 2020);
+	Dog p2(2016);
+	p1.set_born(1940);
+	int** g;
+	int x = 0;
+	int	y = 0;
+	std::cin >> x >> y;
+	g = fill(x, y);
+	std::string s = "O";
+	draw(g, x, y, s);
+
+	double a = 2.0;
+	double b = 0.95;
+
+	Task_A(1.25, 2.75, 0.3, a, b);
+
+	double m[5] = { 2.2, 3.78, 4.51, 6.58, 1.2 };
+	Task_B(m, sizeof(m)/8, a, b);
+
+	for (int i = 0; i < x; i++) {
+		delete[] g[i];
+	}
+	delete[] g;
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
