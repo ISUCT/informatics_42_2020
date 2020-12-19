@@ -1,22 +1,27 @@
 
 #include <iostream>
+<<<<<<< HEAD
 #include <cstring>
 #include "calc.h"
 using namespace std;
+=======
+#include "Calc.h"
+>>>>>>> bf6e04aa0a2238ef57aae332c41286f063b36cfd
 
-class Square
+using namespace std;	
+int main()
 {
-private:
-	int Compare = 0;
-	int SizeOfSquare = 0;
-	string Symbol;
-public:
 
-	Square(int SizeOfSquare)
+	const double a = 1.2;
+	const double b = 0.48;
+	double* y;
+
+	int h = taskA(a, b, 0.7, 2.2, 0.3, y);
+	for (int i = 0; i < h; i++)
 	{
-		this->SizeOfSquare = SizeOfSquare;
-		this->Symbol = Symbol;
+		cout << y[i] << endl;
 	}
+<<<<<<< HEAD
 	
 	void Draw(string Symbol, int compare)
 	{
@@ -39,10 +44,20 @@ public:
 				cout << endl;
 			}
 	}
+=======
+	delete[] y;
 
-	~Square()
+	double x[] = { 0.25, 0.36,0.56, 0.94, 1.28 };
+	cout << "_______________________" << endl;
+
+	h = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y);
+>>>>>>> bf6e04aa0a2238ef57aae332c41286f063b36cfd
+
+	for (int i = 0; i < h; i++)
 	{
+		cout << x[i] << "\t" << y[i] << endl;
 	}
+<<<<<<< HEAD
 };
 
 int main()
@@ -76,6 +91,8 @@ int main()
 	{
 		cout << x[i] << "\t" << y[i] << endl;
 	}
+=======
+>>>>>>> bf6e04aa0a2238ef57aae332c41286f063b36cfd
 	return 0;
 
 }
