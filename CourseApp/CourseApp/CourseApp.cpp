@@ -73,13 +73,71 @@ int main()
 	{
 		cout << x[i] << "\t" << y[i] << endl;
 	}
-
 	return 0;
 
 }
 
 
 
+class Rabbit 
+{
+public:
+	Rabbit(string name, int age, string colour)
+	{
+		this->name = name;
+		this->age = age;
+		this->colour = colour;
+	}
+	Rabbit(string name, int age): Rabbit(name, age, "white") {
+	}
+
+	void setAge(int age)
+	{
+		if (age > 1 && age < 24)
+		{
+			this->age = age;
+		}
+	}
+	
+	int getAge()
+	{
+		return this->age = age;
+	}
+
+	string getName()
+	{
+		return this->name = name;
+	}
+
+	string getColour()
+	{
+		return this->colour = colour;
+	}
+
+	void display()
+	{
+		cout << "Rabbit name:" << this->name << " Age:" << this->age << " Colour:" << this->colour << endl;
+	}
+
+private:
+	string name;
+	int age;
+	string colour;
+
+};
+
+int main()
+{
+	Rabbit male("Snowball", 5, "black");
+	Rabbit female = Rabbit("Snow", 7);
+	male.display();
+	male.setAge(12);
+	male.display();
+	female.display();
+	female.setAge(19);
+	female.display();
+	return 0;
+}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
