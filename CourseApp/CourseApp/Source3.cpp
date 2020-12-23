@@ -48,7 +48,7 @@ public:
 						cout << endl;
 					}
 				}
-				cout << '\n';
+				cout << 'endl';
 			}
 		else if (d == 0)
 			for (int i = 0; i < size + y; i++) {
@@ -62,7 +62,7 @@ public:
 						else cout << ' ';
 					}
 				}
-				cout << '\n';
+				cout << 'endl';
 			}
 	}
 	void set(int a, int b)
@@ -74,7 +74,7 @@ public:
 
 int main()
 {
-	cout << "Do you wanna draw a diagonal ?" << "\nAnswer '1'- Draw a diagonal" << "\nAnswer '0'- Don't draw a diagonal" << endl;
+	cout << "Do you wanna draw a diagonal ?" << "endl Answer '1'- Draw a diagonal" << "endl Answer '0'- Don't draw a diagonal" << endl;
 	int d = 0;
 	cin >> d;
 	cout << "And enter size of square" << endl;
