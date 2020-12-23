@@ -2,8 +2,49 @@
 #include "Calc.h"
 #include <string>
 using namespace std;
+class TV {
+private:
+    int kanal;
+    int Numberbefore;
+    int MaxKanal;
+public:
+    void display() {
+        cout << " Kanal is " << kanal << " Numberbefore is " << Numberbefore << " MaxKanal is " << MaxKanal << endl;
+    }
+    TV(int n, int b, int Kanal) {
+        kanal = Kanal;
+        Numberbefore = b;
+        MaxKanal = n;
+    }
+    TV ( int a ) : TV ( 1, Numberbefore , 450 ) {}
+
+    void set_Numberbefore(int a) {
+        if (a > 0) {
+            Numberbefore = a;
+
+        }
+
+    }
+    void set_MaxKanal(int a) {
+        if (a > 0) {
+            MaxKanal = a;
+
+        }
+    }
+    void set_kanal(int a) {
+        if (a > 0) {
+            kanal = a;
+        }
+    }
+    int Kanal() {
+        return MaxKanal - Numberbefore;
+
+    }
+};
 int main()
 {
+    TV televizor(6,3,100);
+    televizor.display();
 	double a = 0.4;
 	double b = 0.8;
 	int f = 0;
