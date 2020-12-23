@@ -1,20 +1,71 @@
-// CourseApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include "Calc.h"
+#include <string>
+using namespace std;
+class TV {
+private:
+    int kanal;
+    int Numberbefore;
+    int MaxKanal;
+public:
+    void display() {
+        cout << " Kanal is " << kanal << " Numberbefore is " << Numberbefore << " MaxKanal is " << MaxKanal << endl;
+    }
+    TV(int n, int b, int Kanal) {
+        kanal = Kanal;
+        Numberbefore = b;
+        MaxKanal = n;
+    }
+    TV ( int a ) : TV ( 1, Numberbefore , 450 ) {}
 
+    void set_Numberbefore(int a) {
+        if (a > 0) {
+            Numberbefore = a;
+
+        }
+
+    }
+    void set_MaxKanal(int a) {
+        if (a > 0) {
+            MaxKanal = a;
+
+        }
+    }
+    void set_kanal(int a) {
+        if (a > 0) {
+            kanal = a;
+        }
+    }
+    int Kanal() {
+        return MaxKanal - Numberbefore;
+
+    }
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+    TV televizor(6,3,100);
+    televizor.display();
+	double a = 0.4;
+	double b = 0.8;
+	int f = 0;
+	Task_A(3.2, 6.2, 0.6, a, b);
+
+	double m[5] = { 4.48, 3.56, 2.78, 5.28, 3.21 };
+	Task_B(m, sizeof(m) / 8, a, b);
+	{
+		for (int j = 0; j < f; j++) {
+			cout << "*";
+		}
+		cout << endl;
+	}
+	int** g;
+	int x = 0;
+	int    y = 0;
+	cin >> x >> y;
+	g = fill(x, y);
+	string s = "O";
+	draw(g, x, y, s); 
+	
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
