@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Header.h"
-using namespace std; 
+#include "Menu.h"
+using namespace std;
 class Square
 {
 private:
@@ -18,7 +19,7 @@ public:
         for (int i = 0; i < size; i++)
         {
             array[i] = new char[size];
-            for (int j = 0; j < size; j++) 
+            for (int j = 0; j < size; j++)
             {
                 if ((i == 0) or (j == 0))
                 {
@@ -41,37 +42,39 @@ public:
             for (int i = 0; i < size + y; i++)
                 array[i][i] = array[0][0];
         }
-    } 
-
-    void printDiagonal() 
+    }
+    void printDiagonal()
     {
-            for (int i = 0; i < size + y; i++) 
+        for (int i = 0; i < size + y; i++)
+        {
+            for (int j = 0; j < size + x; j++)
             {
-                for (int j = 0; j < size + x; j++) 
+                if ((i - y < 0) or (j - x < 0))
                 {
-                    if ((i - y < 0) or (j - x < 0))  
-                    {
-                        cout << " ";
-                    }
-                    else 
-                    {
-                        cout << array[i - y][j - x] << ' ';    
-                    }
+                    cout << " ";
                 }
-                cout << '\n';
-            };
-    };
+                else
+                {
+                    cout << array[i - y][j - x] << ' ';
+                }
+            }
+            cout << '\n';
+        };
+};
 
-
-    void set(int a, int b) 
+    void set(int a, int b)
     {
         x = a - 1;
         y = b - 1;
     }
 };
-
 int main()
 {
+    
+    Menu menu;
+    menu.get_info();
+
+
     Square newSquare(10);
     bool d;
     cout << "Do you want to draw diagonal?" << endl;
@@ -80,7 +83,7 @@ int main()
     newSquare.drawDiagonal(d);
     newSquare.set(5, 10);
     newSquare.printDiagonal();
-    
+
 
     int SizeA = 0;
     int SizeB = 0;
@@ -104,6 +107,8 @@ int main()
 
     delete[] ArrayA;
     delete[] ArrayB;
-    return 0;
-}
 
+
+    return 0;
+
+}
