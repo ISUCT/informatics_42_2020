@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-int main()
+/*int main()
 {
 	int n;
 	setlocale(LC_ALL, "Rus");
@@ -54,8 +54,47 @@ int main()
 		
 	delete[]p;
 	return 0;
-}
+}*/
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Strana {
+private:
+	int Naselenie;
+	int Ploshat;
+	int Smertnost;
+public:
+	void display() {
+		cout << "Ќаселение(миллиононов) = " << Naselenie << "\n" << "ѕлощадь(тыс€ч) = " << Ploshat << "\n" << "—мертность(тыс€ч) = " << Smertnost << endl;
+	}
+
+	Strana() : Strana(132, 17, 91) {
+		display();
+	}
+	Strana(int a_naselenie, int a_ploshat, int a_smertnost) {
+		Naselenie = a_naselenie;
+		Ploshat = a_ploshat;
+		Smertnost = a_smertnost;
+	}
+	void set(int a_naselenie, int a_ploshat, int a_smertnost) {
+		Naselenie = a_naselenie;
+		Ploshat = a_ploshat;
+		Smertnost = a_smertnost;
+	}
+
+
+};
+
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	Strana svd;
+	svd.set(140,17,102);
+	svd.display();
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
