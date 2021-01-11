@@ -20,7 +20,7 @@ double calc(double x)
 }
 
 
-int taskA(double a, double b, double xn, double xk, double dx,double *&y)
+int taska(double a, double b, double xn, double xk, double dx,double *&y)
 {
     int n = (xk - xn) / dx + 1;
     int i = 0;
@@ -32,7 +32,7 @@ int taskA(double a, double b, double xn, double xk, double dx,double *&y)
     }
     return n;
 }
-int taskB(double a, double b, double* x, int size, double *&y1)
+int taskb(double a, double b, double* x, int size, double *&y1)
     
 {
     y1 = new double[size];
