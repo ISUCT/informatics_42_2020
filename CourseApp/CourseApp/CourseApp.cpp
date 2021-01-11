@@ -16,16 +16,16 @@ int main()
     }
     delete[] y;
 
-    double* y1;
+    //double* y1;
     double arr[] = { 0.1, 0.3, 0.4, 0.45, 0.65 };
     cout << "--------------------" << endl;
-    h = taskB(a, b, arr, sizeof(arr) / sizeof(arr[0]), y1);
+    h = taskB(a, b, arr, sizeof(arr) / sizeof(arr[0]), y);
 
     for (int i = 0; i < h; i++)
     {
 
-        cout << arr[i] << "\t" << y1[i] << endl;
+        cout << arr[i] << "\t" << y[i] << endl;
     }
-    delete[] y1;
+    delete[] y;
     return 0;
 }
