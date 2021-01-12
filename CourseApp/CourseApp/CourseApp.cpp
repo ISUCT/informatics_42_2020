@@ -4,7 +4,7 @@ using namespace std;
 
 class massive
 {
-private:
+ private:
 	int size;
 
 public:
