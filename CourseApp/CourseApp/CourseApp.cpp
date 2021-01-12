@@ -1,37 +1,69 @@
+
 #include <iostream>
-#include "Calc.h"
 using namespace std;
 
-
-int main(int argc, char* argv[])
+class massive
 {
-    cout << "We have " << argc << " params" << endl;
-    for (int i = 0; i < argc; i++)
-    {
-        cout << argv[i] << endl;
-    }
+ private:
+	int size;
 
-    const double a = 4.1;
-    const double b = 2.7;
-    double* y;
-    int m = taskA(a, b, 1.5, 3.5, 0.4, y);
-    for (int i = 0; i < m; i++) {
-        cout << y[i] << endl;
-    }
-    delete[] y;
-    double* y1;
-    double x[] = { 1.9 ,2.15 ,2.34 ,2.74 ,3.16 };
-    cout << "-----------------------" << endl;
-    m = taskB(a, b, x, sizeof(x) / sizeof(x[0]), y1);
-    for (int i = 0; i < m; i++) {
-        cout << y1[i] << endl;
-    }
-    delete[] y1;
-    char end;
-    cin >> end;
-    return 0;
+public:
+	massive(int s)
+	{
+		size = s;
 
-    
+		int* l = new int[size];
+
+		cout << endl << "enter massive:" << endl;
+		for (int i = 0; i < size; ++i) {
+			cout << "a[" << i << "]=";
+			cin >> l[i];
+		}
+
+		quick_sort(l, 0, size - 1);
+
+		int k = 1;
+
+		for (int i = size - 1; i > size - 3; --i) {
+			k = k * l[i];
+			cout << endl << "a[" << i << "]=" << l[i] << " —-max" << endl;
+		}
+		cout << endl << "Proizvedenie max =" << k << endl;
+	}
+	void quick_sort(int* a, int min, int max) {
+		int i = min;
+		int j = max;
+		int x = a[(min + max) / 2];
+		int t;
+		do {
+			while (a[i] < x) {
+				++i;
+			}
+			while (a[j] > x) {
+				--j;
+			}
+			if (i <= j) {
+				t = a[i];
+				a[i] = a[j];
+				a[j] = t;
+				i++; j--;
+			}
+		} while (i <= j);
+
+		if (min < j) {
+			quick_sort(a, min, j);
+		};
+		if (i < max) {
+			quick_sort(a, i, max);
+		}
+
+	}
+};
+int main()
+{
+	int size;
+	cout << "enter size:";
+	cin >> size;
+	massive massive(size);
+
 }
-
-
