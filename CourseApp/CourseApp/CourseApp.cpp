@@ -110,76 +110,119 @@
 //			return 0;
 //			}
 
+//#include <iostream>
+//#include <cstring>
+//using namespace std;
+
+//class Fox
+//{
+//private:
+  //  string name;
+   // int weight;
+   // int age;
+   // string From; // откуда пришла Лиса
+//public:
+ ///   Fox()
+  //  {
+ //       this->name = name;
+ //       this->From = From;
+ //   }
+
+  //  void GetView()
+   // {
+   //     string view = R""""(
+  //                                                                   ,-,
+  //                                                           _.-=;~ /_
+  //                                                        _-~   '     ;.
+  //                                                    _.-~     '   .-~-~`-._
+  //                                              _.--~~:.             --.____88
+  //                            ____.........--~~~. .' .  .        _..-------~~
+  //                   _..--~~~~               .' .'             ,'
+   //              _.-~                        .       .     ` ,'
+  //             .'                                    :.    ./
+ //            .:     ,/          `                   ::.   ,'
+ //          .:'     ,(            ;.                ::. ,-'
+//          .'     ./'.`.     . . /:::._______.... _/:.|/
+//    _,'' . .,/',-~    |||||'                    ||'  |||
+// _.'~  . .,:||'        ||||              _..--- ||o.--'||o.--..__
+//:     ...' ||o __,------.|||o...__..._.=~- .    `~~   `~~      ~-._ -- _.
+//;;;:='    ~~            ~~~                ~-    -       -   -
+//)"""";
+//        cout << view << endl;
+//    }
+
+  //  void Input()
+   // {
+   //     cout << "Name: "; cin >> name; cout << endl;
+   //     cout << "Age: "; cin >> age; cout << endl;
+   //     cout << "Weight: "; cin >> weight; cout << endl;
+   //     cout << "Where did the" << name << " come from? "; cin >> From;
+   // }
+
+  //  void Display()
+  //  {
+  //      cout << name << "-fox is moving." << "Age: " << age << endl << " Weight: " << weight << " " << name << "-fox come from " << From << endl;
+  //  }
+
+  //  ~Fox() {}
+//};
+
+
+//int main()
+//{
+//    Fox fox_1;
+ //   Fox fox_2;
+ //   fox_1.GetView();
+ //   cout << endl << endl;
+ //   fox_1.Input();
+ //   fox_1.Display();
+ //   cout << endl;
+  //  fox_2.Input();
+ //   fox_2.Display();
+
+//}
+
 #include <iostream>
-#include <cstring>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
-
-class Fox
-{
-private:
-    string name;
-    int weight;
-    int age;
-    string From; // откуда пришла Лиса
-public:
-    Fox()
-    {
-        this->name = name;
-        this->From = From;
-    }
-
-    void GetView()
-    {
-        string view = R""""(
-                                                                     ,-,
-                                                             _.-=;~ /_
-                                                          _-~   '     ;.
-                                                      _.-~     '   .-~-~`-._
-                                                _.--~~:.             --.____88
-                              ____.........--~~~. .' .  .        _..-------~~
-                     _..--~~~~               .' .'             ,'
-                 _.-~                        .       .     ` ,'
-               .'                                    :.    ./
-             .:     ,/          `                   ::.   ,'
-           .:'     ,(            ;.                ::. ,-'
-          .'     ./'.`.     . . /:::._______.... _/:.|/
-         /     ./'. . .)  . _.,'               `||;?|||
-       ,'  . .,/'._,-~ /_.|||'                  ||| ?||
-    _,'' . .,/',-~    |||||'                    ||'  |||
- _.'~  . .,:||'        ||||              _..--- ||o.--'||o.--..__
-:     ...' ||o __,------.|||o...__..._.=~- .    `~~   `~~      ~-._ -- _.
-`.;;;:='    ~~            ~~~                ~-    -       -   -
-)"""";
-        cout << view << endl;
-    }
-
-    void Input()
-    {
-        cout << "Name: "; cin >> name; cout << endl;
-        cout << "Age: "; cin >> age; cout << endl;
-        cout << "Weight: "; cin >> weight; cout << endl;
-        cout << "Where did the" << name << " come from? "; cin >> From;
-    }
-
-    void Display()
-    {
-        cout << name << "-fox is moving." << "Age: " << age << endl << " Weight: " << weight << " " << name << "-fox come from " << From << endl;
-    }
-
-    ~Fox() {}
-};
-
-
 int main()
 {
-    Fox fox_1;
-    Fox fox_2;
-    fox_1.GetView();
-    cout << endl << endl;
-    fox_1.Input();
-    fox_1.Display();
-    cout << endl;
-    fox_2.Input();
-    fox_2.Display();
-
+	srand(time(NULL));
+	char answ;
+	do
+	{
+		cout << "Choose the weapon:" << endl
+			<< "0 - rock" << endl
+			<< "1 - scissors" << endl
+			<< "2 - paper" << endl;
+		int persWeapon;
+		cin >> persWeapon;
+		int compWeapon = rand() % 3;
+		switch (compWeapon)
+		{
+		case 0:
+			cout << "Great random selected rock... ";
+			cout <<((persWeapon == 0) ? ("Draw...")
+				: (persWeapon == 1) ? ("You lose. Hahaha")
+				: ("You win... You are lucky, hooray"));
+			break;
+		case 1:
+			cout << "Comuter selected scissors... ";
+			cout <<((persWeapon == 1) ? ("Draw...")
+				: (persWeapon == 2) ? ("You lose. Hahaha")
+				: ("You win... You are lucky, hooray"));
+			break;
+		case 2:
+			cout << "computer selected paper... ";
+			cout <<((persWeapon == 2) ? ("Draw...")
+				: (persWeapon == 0) ? ("You lose. Hahaha")
+				: ("You win... You are lucky, hooray"));
+			break;
+		}
+		cout << endl
+			<< "Retry?" << endl;
+		cin >> answ;
+	} while (answ == 'yes');
+	return 0;
 }
